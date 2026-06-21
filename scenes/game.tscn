@@ -42,3 +42,23 @@ position = Vector2(545, 256)
 
 [node name="Wheel" parent="Entities" unique_id=181955310 instance=ExtResource("4_lbhrr")]
 position = Vector2(815, 164)
+
+[node name="Timer" type="Node" parent="." unique_id=51954178]
+
+[node name="ScoreTimer" type="Timer" parent="Timer" unique_id=1138993644]
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1000400579]
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer" unique_id=537881637]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -31.0
+offset_right = 31.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "0 points"
+
+[connection signal="press" from="Entities/Washer" to="." method="_on_washer_press"]
+[connection signal="timeout" from="Timer/ScoreTimer" to="." method="_on_score_timer_timeout"]
