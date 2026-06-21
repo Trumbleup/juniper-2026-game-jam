@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://3bnsok3vhiqc" path="res://scripts/game.gd" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://cj7icw15ggbe" path="res://scenes/cursor.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://2biomjgu07db" path="res://scenes/washer.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://c8imauhtpbccn" path="res://scenes/wheel.tscn" id="4_lbhrr"]
 
 [sub_resource type="DrawableTexture2D" id="DrawableTexture2D_8nox5"]
 
@@ -34,3 +36,9 @@ color = Color(0.500095, 0.50009507, 0.500095, 1)
 [node name="Entities" type="Node2D" parent="." unique_id=15715286]
 
 [node name="Cursor" parent="Entities" unique_id=1765368202 instance=ExtResource("2_yqjtg")]
+
+[node name="Washer" parent="Entities" unique_id=1307096267 instance=ExtResource("3_lnu2h")]
+position = Vector2(545, 256)
+
+[node name="Wheel" parent="Entities" unique_id=181955310 instance=ExtResource("4_lbhrr")]
+position = Vector2(815, 164)
