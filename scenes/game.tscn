@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bi1n7hx48vobu"]
 
 [ext_resource type="Script" uid="uid://3bnsok3vhiqc" path="res://scripts/game.gd" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://cj7icw15ggbe" path="res://scenes/cursor.tscn" id="2_yqjtg"]
 
 [sub_resource type="DrawableTexture2D" id="DrawableTexture2D_8nox5"]
 
@@ -8,7 +9,7 @@
 script = ExtResource("1_uwrxv")
 
 [node name="BG" type="Sprite2D" parent="." unique_id=855200895]
-modulate = Color(0.81960785, 1, 1, 1)
+modulate = Color(0, 0.23908472, 0.24258366, 1)
 scale = Vector2(17.96875, 10.125)
 texture = SubResource("DrawableTexture2D_8nox5")
 centered = false
@@ -29,3 +30,7 @@ offset_top = 0.39506173
 offset_right = 64.2226
 offset_bottom = 12.246914
 color = Color(0.500095, 0.50009507, 0.500095, 1)
+
+[node name="Entities" type="Node2D" parent="." unique_id=15715286]
+
+[node name="Cursor" parent="Entities" unique_id=1765368202 instance=ExtResource("2_yqjtg")]

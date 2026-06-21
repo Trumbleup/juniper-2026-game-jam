@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cj7icw15ggbe"]
+
+[ext_resource type="Script" uid="uid://cxcqfmkjeejls" path="res://scripts/cursor.gd" id="1_s0nli"]
+[ext_resource type="Texture2D" uid="uid://i2hxw7hxlpjg" path="res://placeholder_assets/ui/crosshair.png" id="2_ndevg"]
+
+[node name="Cursor" type="Node2D" unique_id=1765368202]
+script = ExtResource("1_s0nli")
+
+[node name="Marker" type="Sprite2D" parent="." unique_id=1459619324]
+texture = ExtResource("2_ndevg")
