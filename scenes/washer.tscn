@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://2biomjgu07db"]
+
+[node name="Washer" type="Node2D" unique_id=1307096267]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1993385791]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=103759124]
+offset_right = 78.0
+offset_bottom = 90.0
+color = Color(0.47918278, 0.47918278, 0.47918278, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=173386891]
+offset_left = 27.0
+offset_top = 31.0
+offset_right = 50.0
+offset_bottom = 57.0
+color = Color(0.07815645, 0.07815645, 0.07815645, 1)
