@@ -27,12 +27,10 @@ func _process(_delta: float) -> void:
 
 func _on_area_2d_mouse_entered() -> void:
 	is_mouse_hovering = true
-	print("is hovered ", is_mouse_hovering)
 
 
 func _on_area_2d_mouse_exited() -> void:
 	is_mouse_hovering = false
-	print("is hovered ", is_mouse_hovering)
 
 
 func _on_animal_is_held(isDragging: bool) -> void:
