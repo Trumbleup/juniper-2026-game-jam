@@ -20,6 +20,9 @@ func _process(_delta: float) -> void:
 			else:
 				is_mouse_pressed = false
 				press.emit(false)
+		else:
+			is_mouse_pressed = false # ensures player cannot leave washer while pressing and keep score going
+			press.emit(false)
 
 
 func _on_area_2d_mouse_entered() -> void:
