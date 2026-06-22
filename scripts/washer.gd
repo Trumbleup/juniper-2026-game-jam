@@ -15,11 +15,9 @@ func _process(_delta: float) -> void:
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 			is_mouse_pressed = true
 			press.emit(true)
-			print("pressed")
 		else:
 			is_mouse_pressed = false
 			press.emit(false)
-			print("not pressed")
 
 
 func _on_area_2d_mouse_entered() -> void:
