@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dfhtb4bgbjg6u"]
+
+[ext_resource type="Script" uid="uid://bcks1xn6o7qjb" path="res://scripts/wheel.gd" id="1_ylp6s"]
+
+[sub_resource type="Gradient" id="Gradient_p2rsc"]
+offsets = PackedFloat32Array(0, 0.676, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.6999999, 0.6999999, 0.6999999, 1, 0, 0, 0, 1)
+metadata/_snap_count = 2
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ewfa7"]
+gradient = SubResource("Gradient_p2rsc")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.20000002, 0.20000002)
+metadata/_snap_enabled = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8nox5"]
+size = Vector2(46, 44)
+
+[node name="RabbitWheel" type="Node2D" unique_id=181955310]
+scale = Vector2(2, 2)
+script = ExtResource("1_ylp6s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=766747452]
+modulate = Color(1, 1, 1, 0.92941177)
+position = Vector2(-9.536743e-07, 9.536743e-07)
+scale = Vector2(0.625, 0.625)
+texture = SubResource("GradientTexture2D_ewfa7")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=73464692]
+collision_layer = 8
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=749147065]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_8nox5")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

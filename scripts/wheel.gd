@@ -2,6 +2,9 @@ extends Node2D
 
 var is_mouse_hovering: bool = false
 
+enum WheelType { MOUSE, RABBIT, FROG }
+@export var wheel_type: WheelType
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
