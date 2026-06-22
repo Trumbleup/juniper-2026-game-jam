@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cj7icw15ggbe" path="res://scenes/cursor.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://2biomjgu07db" path="res://scenes/washer.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://c8imauhtpbccn" path="res://scenes/wheel.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://cjuqpnei3umne" path="res://scenes/animal.tscn" id="5_iywne"]
 
 [sub_resource type="DrawableTexture2D" id="DrawableTexture2D_8nox5"]
 
@@ -35,6 +36,9 @@ color = Color(0.500095, 0.50009507, 0.500095, 1)
 
 [node name="Entities" type="Node2D" parent="." unique_id=15715286]
 
+[node name="Animal" parent="Entities" unique_id=1260241564 instance=ExtResource("5_iywne")]
+position = Vector2(693, 418)
+
 [node name="Cursor" parent="Entities" unique_id=1765368202 instance=ExtResource("2_yqjtg")]
 
 [node name="Washer" parent="Entities" unique_id=1307096267 instance=ExtResource("3_lnu2h")]
@@ -60,5 +64,6 @@ offset_bottom = 23.0
 grow_horizontal = 2
 text = "0 points"
 
+[connection signal="is_held" from="Entities/Animal" to="Entities/Washer" method="_on_animal_is_held"]
 [connection signal="press" from="Entities/Washer" to="." method="_on_washer_press"]
 [connection signal="timeout" from="Timer/ScoreTimer" to="." method="_on_score_timer_timeout"]

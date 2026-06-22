@@ -13,5 +13,5 @@ func _physics_process(_delta: float) -> void:
 	
 
 func update_marker() -> void:
-	var mouse_world_pos: Vector2 = get_local_mouse_position()
-	$Marker.position = mouse_world_pos
+	var mouse_local_pos: Vector2 = get_local_mouse_position()
+	$Marker.position = mouse_local_pos

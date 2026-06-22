@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cjuqpnei3umne"]
+
+[ext_resource type="Script" uid="uid://46p3ugsiurp0" path="res://scripts/animal.gd" id="1_rsu6n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s0nli"]
+radius = 12.0
+
+[node name="Animal" type="Node2D" unique_id=1260241564]
+z_index = 20
+script = ExtResource("1_rsu6n")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1478271229]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1299213898]
+position = Vector2(8, 7)
+shape = SubResource("CircleShape2D_s0nli")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1775216064]
+offset_right = 15.0
+offset_bottom = 14.0
+mouse_filter = 2
+color = Color(0, 0.5568628, 0.36078432, 1)
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
