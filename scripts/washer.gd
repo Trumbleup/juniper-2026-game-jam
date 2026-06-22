@@ -13,8 +13,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if can_press:
-		pass
-	else:
 		if is_mouse_hovering:
 			if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 				is_mouse_pressed = true
@@ -35,4 +33,4 @@ func _on_area_2d_mouse_exited() -> void:
 
 
 func _on_animal_is_held(isDragging: bool) -> void:
-	can_press != isDragging
+	can_press = !isDragging
