@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://5fk0851ispqx"]
+
+[ext_resource type="Script" uid="uid://8x2ml5ypohkx" path="res://scripts/animals/rabbit.gd" id="1_kqc4y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s0nli"]
+radius = 12.0
+
+[node name="Rabbit" type="Node2D" unique_id=1260241564]
+z_index = 20
+script = ExtResource("1_kqc4y")
+animal_type = 1
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1478271229]
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1299213898]
+position = Vector2(7.5, 7)
+shape = SubResource("CircleShape2D_s0nli")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1775216064]
+offset_right = 15.0
+offset_bottom = 14.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+color = Color(0, 0.5568628, 0.36078432, 1)
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

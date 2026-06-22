@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://cjuqpnei3umne"]
 
-[ext_resource type="Script" uid="uid://46p3ugsiurp0" path="res://scripts/animal.gd" id="1_rsu6n"]
+[ext_resource type="Script" uid="uid://jxbl7l3anokd" path="res://scripts/animals/mouse.gd" id="1_a68rm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s0nli"]
 radius = 12.0
 
-[node name="Animal" type="Node2D" unique_id=1260241564]
+[node name="Mouse" type="Node2D" unique_id=1260241564]
 z_index = 20
-script = ExtResource("1_rsu6n")
+script = ExtResource("1_a68rm")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1478271229]
 

@@ -4,7 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://cj7icw15ggbe" path="res://scenes/cursor.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://2biomjgu07db" path="res://scenes/washer.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://c8imauhtpbccn" path="res://scenes/wheel.tscn" id="4_lbhrr"]
-[ext_resource type="PackedScene" uid="uid://cjuqpnei3umne" path="res://scenes/animal.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://cjuqpnei3umne" path="res://scenes/animals/mouse.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://5fk0851ispqx" path="res://scenes/animals/rabbit.tscn" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://c12e6pb0u8rp0" path="res://scenes/animals/frog.tscn" id="7_u5sy4"]
 
 [sub_resource type="DrawableTexture2D" id="DrawableTexture2D_8nox5"]
 
@@ -36,8 +38,11 @@ color = Color(0.500095, 0.50009507, 0.500095, 1)
 
 [node name="Entities" type="Node2D" parent="." unique_id=15715286]
 
-[node name="Animal" parent="Entities" unique_id=1260241564 instance=ExtResource("5_iywne")]
+[node name="Mouse" parent="Entities" unique_id=1260241564 groups=["Animals"] instance=ExtResource("5_iywne")]
 position = Vector2(693, 418)
+
+[node name="Mouse2" parent="Entities" unique_id=670579943 groups=["Animals"] instance=ExtResource("5_iywne")]
+position = Vector2(776, 419)
 
 [node name="Cursor" parent="Entities" unique_id=1765368202 instance=ExtResource("2_yqjtg")]
 
@@ -46,6 +51,18 @@ position = Vector2(545, 256)
 
 [node name="Wheel" parent="Entities" unique_id=181955310 instance=ExtResource("4_lbhrr")]
 position = Vector2(815, 164)
+
+[node name="Rabbit" parent="Entities" unique_id=1443523750 groups=["Animals"] instance=ExtResource("6_p57ef")]
+position = Vector2(991, 392)
+
+[node name="Rabbit2" parent="Entities" unique_id=762763437 groups=["Animals"] instance=ExtResource("6_p57ef")]
+position = Vector2(894, 390)
+
+[node name="Frog" parent="Entities" unique_id=619677910 groups=["Animals"] instance=ExtResource("7_u5sy4")]
+position = Vector2(298, 391)
+
+[node name="Frog2" parent="Entities" unique_id=1736212030 groups=["Animals"] instance=ExtResource("7_u5sy4")]
+position = Vector2(427, 392)
 
 [node name="Timer" type="Node" parent="." unique_id=51954178]
 
@@ -64,6 +81,7 @@ offset_bottom = 23.0
 grow_horizontal = 2
 text = "0 points"
 
-[connection signal="is_held" from="Entities/Animal" to="Entities/Washer" method="_on_animal_is_held"]
+[connection signal="is_held" from="Entities/Mouse" to="Entities/Washer" method="_on_animal_is_held"]
+[connection signal="is_held" from="Entities/Mouse2" to="Entities/Washer" method="_on_animal_is_held"]
 [connection signal="press" from="Entities/Washer" to="." method="_on_washer_press"]
 [connection signal="timeout" from="Timer/ScoreTimer" to="." method="_on_score_timer_timeout"]
