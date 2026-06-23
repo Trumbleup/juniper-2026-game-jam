@@ -21,12 +21,6 @@ collision_mask = 9
 position = Vector2(8, 7)
 shape = SubResource("CircleShape2D_s0nli")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1775216064]
-offset_right = 15.0
-offset_bottom = 14.0
-mouse_filter = 2
-color = Color(0, 0.5568628, 0.36078432, 1)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=820037690]
 position = Vector2(8, 7)
 shape = SubResource("CircleShape2D_8nox5")
