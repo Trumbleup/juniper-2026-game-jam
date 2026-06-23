@@ -5,16 +5,23 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_s0nli"]
 radius = 12.0
 
-[node name="Frog" type="Node2D" unique_id=1260241564]
+[sub_resource type="CircleShape2D" id="CircleShape2D_8nox5"]
+radius = 31.0
+
+[node name="Frog" type="CharacterBody2D" unique_id=572160555]
 z_index = 20
+collision_layer = 16
+collision_mask = 9
 script = ExtResource("1_ufl66")
 animal_type = 2
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1478271229]
-scale = Vector2(3, 3)
+[node name="GrabZone" type="Area2D" parent="." unique_id=1883675182]
+collision_layer = 16
+collision_mask = 9
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1299213898]
-position = Vector2(7.6666665, 7)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabZone" unique_id=1299213898]
+position = Vector2(23, 21)
+scale = Vector2(3, 3)
 shape = SubResource("CircleShape2D_s0nli")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1775216064]
@@ -25,5 +32,6 @@ scale = Vector2(3, 3)
 mouse_filter = 2
 color = Color(0, 0.5568628, 0.36078432, 1)
 
-[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1292240921]
+position = Vector2(23, 21)
+shape = SubResource("CircleShape2D_8nox5")

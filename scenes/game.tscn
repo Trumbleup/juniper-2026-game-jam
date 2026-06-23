@@ -40,22 +40,16 @@ color = Color(0.500095, 0.50009507, 0.500095, 1)
 
 [node name="Entities" type="Node2D" parent="." unique_id=15715286]
 
-[node name="Mouse" parent="Entities" unique_id=1260241564 groups=["Animals"] instance=ExtResource("5_iywne")]
-position = Vector2(719, 462)
-
-[node name="Mouse2" parent="Entities" unique_id=670579943 groups=["Animals"] instance=ExtResource("5_iywne")]
-position = Vector2(789, 461)
-
 [node name="Cursor" parent="Entities" unique_id=1765368202 instance=ExtResource("2_yqjtg")]
 
 [node name="Washer" parent="Entities" unique_id=1307096267 instance=ExtResource("3_lnu2h")]
 position = Vector2(545, 256)
 
-[node name="MouseWheel1" parent="Entities" unique_id=181955310 instance=ExtResource("5_0tnpc")]
-position = Vector2(701, 261)
+[node name="Mouse" parent="Entities" unique_id=1260241564 groups=["Animals"] instance=ExtResource("5_iywne")]
+position = Vector2(719, 462)
 
-[node name="MouseWheel2" parent="Entities" unique_id=1612965596 instance=ExtResource("5_0tnpc")]
-position = Vector2(704, 159)
+[node name="Mouse2" parent="Entities" unique_id=670579943 groups=["Animals"] instance=ExtResource("5_iywne")]
+position = Vector2(789, 461)
 
 [node name="Rabbit" parent="Entities" unique_id=1443523750 groups=["Animals"] instance=ExtResource("6_p57ef")]
 position = Vector2(995, 454)
@@ -69,17 +63,27 @@ position = Vector2(374, 434)
 [node name="Frog2" parent="Entities" unique_id=1736212030 groups=["Animals"] instance=ExtResource("7_u5sy4")]
 position = Vector2(519, 406)
 
+[node name="MouseWheel1" parent="Entities" unique_id=181955310 instance=ExtResource("5_0tnpc")]
+position = Vector2(701, 261)
+
+[node name="MouseWheel2" parent="Entities" unique_id=1612965596 instance=ExtResource("5_0tnpc")]
+position = Vector2(704, 159)
+
 [node name="RabbitWheel" parent="Entities" unique_id=1573098094 instance=ExtResource("8_0tnpc")]
 position = Vector2(832, 273)
+wheel_type = 1
 
 [node name="RabbitWheel2" parent="Entities" unique_id=690929927 instance=ExtResource("8_0tnpc")]
 position = Vector2(831, 147)
+wheel_type = 1
 
 [node name="FrogWheel" parent="Entities" unique_id=1899036704 instance=ExtResource("9_vtaks")]
 position = Vector2(1016.00006, 121.00001)
+wheel_type = 2
 
 [node name="FrogWheel2" parent="Entities" unique_id=266569211 instance=ExtResource("9_vtaks")]
 position = Vector2(1016, 281)
+wheel_type = 2
 
 [node name="Timer" type="Node" parent="." unique_id=51954178]
 

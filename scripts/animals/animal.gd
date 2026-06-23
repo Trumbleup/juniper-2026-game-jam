@@ -1,5 +1,5 @@
 class_name Animal
-extends Node2D
+extends CharacterBody2D
 
 var hovering: bool = false
 var dragging: bool = false
@@ -10,10 +10,13 @@ var animalType: String
 enum AnimalType { MOUSE, RABBIT, FROG }
 @export var animal_type: AnimalType
 
+@onready var grabZone = $GrabZone
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	handleAnimalType()
-	
+	grabZone.mouse_entered.connect(_on_grabzone_mouse_entered)
+	grabZone.mouse_exited.connect(_on_grabzone_mouse_exited)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -22,12 +25,12 @@ func _process(_delta: float) -> void:
 			
 	
 	
-func _on_area_2d_mouse_entered() -> void:
+func _on_grabzone_mouse_entered() -> void:
 	hovering = true
 	print(animalType)
 
 
-func _on_area_2d_mouse_exited() -> void:
+func _on_grabzone_mouse_exited() -> void:
 	hovering = false
 
 func handleDragging() -> void:
