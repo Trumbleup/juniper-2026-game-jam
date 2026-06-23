@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cjuqpnei3umne"]
 
 [ext_resource type="Script" uid="uid://jxbl7l3anokd" path="res://scripts/animals/mouse.gd" id="1_a68rm"]
+[ext_resource type="Texture2D" uid="uid://byivk4s0ic6y1" path="res://placeholder_assets/animals_p.png" id="2_r0e6d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s0nli"]
 radius = 12.0
@@ -29,3 +30,10 @@ color = Color(0, 0.5568628, 0.36078432, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=820037690]
 position = Vector2(8, 7)
 shape = SubResource("CircleShape2D_8nox5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=553064484]
+position = Vector2(14, 6)
+scale = Vector2(0.23954101, 0.23954101)
+texture = ExtResource("2_r0e6d")
+region_enabled = true
+region_rect = Rect2(368.94867, 627.23663, 148.23065, 61.76648)

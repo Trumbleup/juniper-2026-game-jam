@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://5fk0851ispqx"]
 
 [ext_resource type="Script" uid="uid://8x2ml5ypohkx" path="res://scripts/animals/rabbit.gd" id="1_kqc4y"]
+[ext_resource type="Texture2D" uid="uid://byivk4s0ic6y1" path="res://placeholder_assets/animals_p.png" id="2_gecnt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s0nli"]
 radius = 12.0
@@ -34,3 +35,10 @@ color = Color(0, 0.5568628, 0.36078432, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1729662619]
 position = Vector2(15, 14)
 shape = SubResource("CircleShape2D_kqc4y")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1571452848]
+position = Vector2(15.183288, 11.066)
+scale = Vector2(0.22626863, 0.24703874)
+texture = ExtResource("2_gecnt")
+region_enabled = true
+region_rect = Rect2(246.93329, 431.47144, 184.20706, 129.89795)
