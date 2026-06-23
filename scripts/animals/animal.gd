@@ -54,3 +54,6 @@ func handleAnimalType() -> void:
 			animalType = "rabbit"
 		AnimalType.FROG:
 			animalType = "frog"
+			
+func handleAnimalGroundSpawn() -> void:
+	var MOUSE_SPAWNS = [{"x": 700, "y": 400}, {"x": 700, "y": 470}]
