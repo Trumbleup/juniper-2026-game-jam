@@ -98,7 +98,5 @@ offset_bottom = 23.0
 grow_horizontal = 2
 text = "0 points"
 
-[connection signal="is_held" from="Entities/Mouse" to="Entities/Washer" method="_on_animal_is_held"]
-[connection signal="is_held" from="Entities/Mouse2" to="Entities/Washer" method="_on_animal_is_held"]
 [connection signal="press" from="Entities/Washer" to="." method="_on_washer_press"]
 [connection signal="timeout" from="Timer/ScoreTimer" to="." method="_on_score_timer_timeout"]

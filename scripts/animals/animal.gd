@@ -5,7 +5,6 @@ var hovering: bool = false
 var dragging: bool = false
 var animalType: String
 @onready var game = $"../../"
-signal is_held(isDragging: bool)
 
 # Create a dropdown list for the Inspector
 enum AnimalType { MOUSE, RABBIT, FROG }
@@ -39,11 +38,9 @@ func handleDragging() -> void:
 			if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 				position = get_global_mouse_position()
 				dragging = true
-				is_held.emit(dragging)
 				game.entityHeld = true
 			else:
 				dragging = false
-				is_held.emit(dragging)
 				game.entityHeld = false	
 	
 func handleAnimalType() -> void:

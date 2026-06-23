@@ -3,6 +3,7 @@ extends Node2D
 var is_mouse_hovering: bool = false
 var is_mouse_pressed: bool = false
 var can_press: bool = true
+@onready var game = $"../../"
 signal press(isActive: bool)
 
 # Called when the node enters the scene tree for the first time.
@@ -12,6 +13,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	if game.entityHeld:
+		return
 	if can_press:
 		if is_mouse_hovering:
 			if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
