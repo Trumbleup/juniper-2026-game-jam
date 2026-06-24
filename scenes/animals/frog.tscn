@@ -13,13 +13,13 @@ radius = 31.0
 z_index = 20
 scale = Vector2(2, 2)
 collision_layer = 16
-collision_mask = 9
+collision_mask = 2
 script = ExtResource("1_ufl66")
 animal_type = 2
 
 [node name="GrabZone" type="Area2D" parent="." unique_id=1883675182]
 collision_layer = 16
-collision_mask = 9
+collision_mask = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GrabZone" unique_id=1299213898]
 scale = Vector2(3, 3)
@@ -40,8 +40,10 @@ region_rect = Rect2(403.13336, 170.05334, 203.1333, 125.033356)
 [node name="RayCastLeft" type="RayCast2D" parent="." unique_id=1012461479]
 rotation = 1.5707964
 target_position = Vector2(1.5517543e-06, 35.5)
+collision_mask = 2
 
 [node name="RayCastRight" type="RayCast2D" parent="." unique_id=1207339290]
 position = Vector2(0.33333334, 1.1842447e-15)
 rotation = -1.5707964
 target_position = Vector2(-1.5590396e-06, 35.666668)
+collision_mask = 2

@@ -4,6 +4,7 @@ var is_mouse_hovering: bool = false
 var animal_hovered: bool = false
 var wheelType: String
 var hoveredAnimal: CharacterBody2D = null
+var wheelOccupied: bool
 @onready var game = $"../../"
 
 enum WheelType { MOUSE, RABBIT, FROG }
@@ -17,7 +18,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if hoveredAnimal and !game.entityHeld and !hoveredAnimal.placedOnWheel:
+	if hoveredAnimal and !game.entityHeld and !hoveredAnimal.placedOnWheel and !wheelOccupied:
 		handleAnimalPlacement(hoveredAnimal)
 
 func _on_area_2d_mouse_entered() -> void:
@@ -50,5 +51,7 @@ func handleWheelType() -> void:
 func handleAnimalPlacement(animal: CharacterBody2D) -> void:
 		if animal.animalType == wheelType:
 			animal.handleAnimalPlacementWheel(global_position)
+			wheelOccupied = true
 		else:
 			animal.handleAnimalGroundSpawn()
+			wheelOccupied = false

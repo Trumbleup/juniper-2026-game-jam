@@ -1,6 +1,14 @@
 class_name Animal
 extends CharacterBody2D
 
+const SPEED = 60
+
+var direction = -1
+
+@onready var ray_cast_right: RayCast2D = $RayCastRight
+@onready var ray_cast_left: RayCast2D = $RayCastLeft
+@onready var sprite_2D: Sprite2D = $Sprite2D
+
 var hovering: bool = false
 var dragging: bool = false
 var animalType: String
@@ -27,9 +35,9 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 		handleDragging()
-			
+		handleMovement(delta)
 	
 	
 func _on_grabzone_mouse_entered() -> void:
@@ -41,6 +49,17 @@ func _on_grabzone_mouse_exited() -> void:
 	
 func _on_wheel_timeout() -> void:
 	handleAnimalGroundSpawn()
+	
+func handleMovement(delta: float) -> void:
+	if placedOnWheel:
+		return
+	if ray_cast_right.is_colliding():
+		direction = -1
+		sprite_2D.flip_h = false
+	if ray_cast_left.is_colliding():
+		direction = 1
+		sprite_2D.flip_h = true
+	position.x += direction * SPEED * delta
 
 func handleDragging() -> void:
 	if hovering:
@@ -79,6 +98,8 @@ func handleAnimalGroundSpawn() -> void:
 		"frog":
 			var spawnPoint = FROG_SPAWNS.pick_random()
 			global_position = Vector2(spawnPoint["x"], spawnPoint["y"])
+	placedOnWheel = false
+	
 			
 func handleAnimalPlacementWheel(wheelPosition: Vector2) -> void:
 	global_position = wheelPosition

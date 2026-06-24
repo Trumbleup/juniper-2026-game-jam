@@ -12,11 +12,13 @@ radius = 11.0
 [node name="Mouse" type="CharacterBody2D" unique_id=1492491872]
 z_index = 20
 scale = Vector2(3, 3)
+collision_layer = 16
+collision_mask = 2
 script = ExtResource("1_a68rm")
 
 [node name="GrabZone" type="Area2D" parent="." unique_id=1478271229]
 collision_layer = 16
-collision_mask = 9
+collision_mask = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GrabZone" unique_id=1299213898]
 shape = SubResource("CircleShape2D_s0nli")
@@ -35,8 +37,10 @@ region_rect = Rect2(368.94867, 627.23663, 148.23065, 61.76648)
 [node name="RayCastLeft" type="RayCast2D" parent="." unique_id=879101736]
 rotation = 1.5707964
 target_position = Vector2(7.4309355e-07, 17)
+collision_mask = 2
 
 [node name="RayCastRight" type="RayCast2D" parent="." unique_id=369052303]
 position = Vector2(0.33333334, 1.1842447e-15)
 rotation = -1.5707964
 target_position = Vector2(7.4309355e-07, 17)
+collision_mask = 2
