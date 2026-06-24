@@ -31,3 +31,12 @@ region_enabled = true
 region_rect = Rect2(368.94867, 627.23663, 148.23065, 61.76648)
 
 [node name="WheelTimer" type="Timer" parent="." unique_id=1951247708]
+
+[node name="RayCastLeft" type="RayCast2D" parent="." unique_id=879101736]
+rotation = 1.5707964
+target_position = Vector2(7.4309355e-07, 17)
+
+[node name="RayCastRight" type="RayCast2D" parent="." unique_id=369052303]
+position = Vector2(0.33333334, 1.1842447e-15)
+rotation = -1.5707964
+target_position = Vector2(7.4309355e-07, 17)

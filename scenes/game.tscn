@@ -11,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://dfhtb4bgbjg6u" path="res://scenes/wheels/rabbit_wheel.tscn" id="8_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://57yhcynxfr3i" path="res://scenes/wheels/frog_wheel.tscn" id="9_vtaks"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8nox5"]
+size = Vector2(24, 1103)
+
 [node name="Game" type="Node2D" unique_id=423232976]
 script = ExtResource("1_uwrxv")
 
@@ -21,6 +24,25 @@ centered = false
 [node name="Camera2D" type="Camera2D" parent="BG" unique_id=784709716]
 scale = Vector2(1.4222223, 2.1333334)
 anchor_mode = 0
+
+[node name="Borders" type="Node2D" parent="." unique_id=1911136774]
+
+[node name="LeftBorder" type="StaticBody2D" parent="Borders" unique_id=453332429]
+collision_layer = 2
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/LeftBorder" unique_id=613362477]
+position = Vector2(2, 541.5)
+shape = SubResource("RectangleShape2D_8nox5")
+
+[node name="RightBorder" type="StaticBody2D" parent="Borders" unique_id=1087718680]
+position = Vector2(1920, 6)
+collision_layer = 2
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/RightBorder" unique_id=858154916]
+position = Vector2(2, 541.5)
+shape = SubResource("RectangleShape2D_8nox5")
 
 [node name="Entities" type="Node2D" parent="." unique_id=15715286]
 
