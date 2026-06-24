@@ -1,8 +1,6 @@
 class_name Animal
 extends CharacterBody2D
 
-const SPEED = 60
-
 var direction = -1
 
 @onready var ray_cast_right: RayCast2D = $RayCastRight
@@ -33,13 +31,6 @@ func _ready() -> void:
 	wheelTimer.wait_time = SPAWN_WAIT_TIMES.pick_random()
 	
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-		handleDragging()
-		handleMovement(delta)
-	
-	
 func _on_grabzone_mouse_entered() -> void:
 	hovering = true
 
@@ -50,7 +41,7 @@ func _on_grabzone_mouse_exited() -> void:
 func _on_wheel_timeout() -> void:
 	handleAnimalGroundSpawn()
 	
-func handleMovement(delta: float) -> void:
+func handleMovement(delta: float, speed) -> void:
 	if placedOnWheel:
 		return
 	if ray_cast_right.is_colliding():
@@ -59,7 +50,7 @@ func handleMovement(delta: float) -> void:
 	if ray_cast_left.is_colliding():
 		direction = 1
 		sprite_2D.flip_h = true
-	position.x += direction * SPEED * delta
+	position.x += direction * speed * delta
 
 func handleDragging() -> void:
 	if hovering:
@@ -102,8 +93,8 @@ func handleAnimalGroundSpawn() -> void:
 	
 			
 func handleAnimalPlacementWheel(wheelPosition: Vector2) -> void:
-	global_position = wheelPosition
 	placedOnWheel = true
+	global_position = wheelPosition
 	wheelTimer.start()
 	
 	
