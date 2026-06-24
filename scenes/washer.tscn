@@ -1,9 +1,7 @@
 [gd_scene format=3 uid="uid://2biomjgu07db"]
 
 [ext_resource type="Script" uid="uid://cba02of1i1osr" path="res://scripts/washer.gd" id="1_lfd6o"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8nox5"]
-size = Vector2(78, 90)
+[ext_resource type="Texture2D" uid="uid://dsg88qib3surx" path="res://placeholder_assets/washer 3.png" id="2_3fnrt"]
 
 [node name="Washer" type="Node2D" unique_id=1307096267]
 script = ExtResource("1_lfd6o")
@@ -11,25 +9,13 @@ script = ExtResource("1_lfd6o")
 [node name="Area2D" type="Area2D" parent="." unique_id=1078675858]
 z_index = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1475475770]
-position = Vector2(39, 45)
-shape = SubResource("RectangleShape2D_8nox5")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=1418066974]
+visible = false
+position = Vector2(-108, -188)
+polygon = PackedVector2Array(218, 0, 233, 20, 246, 46, 251, 52, 252, 367, 245, 373, -26, 372, -35, 361, -37, 52, -30, 42, -1, 5)
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=103759124]
-offset_right = 78.0
-offset_bottom = 90.0
-mouse_filter = 2
-color = Color(0.47918278, 0.47918278, 0.47918278, 1)
-metadata/_edit_lock_ = true
-
-[node name="ColorRect2" type="ColorRect" parent="ColorRect" unique_id=173386891]
-layout_mode = 0
-offset_left = 27.0
-offset_top = 31.0
-offset_right = 50.0
-offset_bottom = 57.0
-mouse_filter = 2
-color = Color(0.07815645, 0.07815645, 0.07815645, 1)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1976063047]
+texture = ExtResource("2_3fnrt")
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
