@@ -57,11 +57,17 @@ position = Vector2(1256, 296)
 [node name="Mouse2" parent="Entities" unique_id=670579943 groups=["Animals"] instance=ExtResource("5_iywne")]
 position = Vector2(1278, 487)
 
+[node name="Mouse3" parent="Entities" unique_id=1492491872 groups=["Animals"] instance=ExtResource("5_iywne")]
+position = Vector2(1274, 633)
+
 [node name="Rabbit" parent="Entities" unique_id=1443523750 groups=["Animals"] instance=ExtResource("6_p57ef")]
 position = Vector2(1486, 293)
 
 [node name="Rabbit2" parent="Entities" unique_id=762763437 groups=["Animals"] instance=ExtResource("6_p57ef")]
 position = Vector2(1481, 468)
+
+[node name="Rabbit3" parent="Entities" unique_id=1541699157 groups=["Animals"] instance=ExtResource("6_p57ef")]
+position = Vector2(1483, 620)
 
 [node name="Frog" parent="Entities" unique_id=619677910 groups=["Animals"] instance=ExtResource("7_u5sy4")]
 position = Vector2(1670, 537)
@@ -75,12 +81,19 @@ position = Vector2(1280, 491)
 [node name="MouseWheel2" parent="Entities" unique_id=1612965596 instance=ExtResource("5_0tnpc")]
 position = Vector2(1254, 301)
 
+[node name="MouseWheel3" parent="Entities" unique_id=1119356042 instance=ExtResource("5_0tnpc")]
+position = Vector2(1273, 636)
+
 [node name="RabbitWheel" parent="Entities" unique_id=1573098094 instance=ExtResource("8_0tnpc")]
 position = Vector2(1484, 470)
 wheel_type = 1
 
 [node name="RabbitWheel2" parent="Entities" unique_id=690929927 instance=ExtResource("8_0tnpc")]
 position = Vector2(1483, 299)
+wheel_type = 1
+
+[node name="RabbitWheel3" parent="Entities" unique_id=23350019 instance=ExtResource("8_0tnpc")]
+position = Vector2(1482, 619)
 wheel_type = 1
 
 [node name="FrogWheel" parent="Entities" unique_id=1899036704 instance=ExtResource("9_vtaks")]
@@ -108,6 +121,14 @@ offset_bottom = 23.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 87
 text = "0 points"
+
+[node name="PowerLabel" type="Label" parent="CanvasLayer" unique_id=1131941558]
+offset_left = 740.0
+offset_top = 300.0
+offset_right = 932.0
+offset_bottom = 407.0
+theme_override_font_sizes/font_size = 60
+text = "10/10"
 
 [connection signal="press" from="Entities/Washer" to="." method="_on_washer_press"]
 [connection signal="timeout" from="Timer/ScoreTimer" to="." method="_on_score_timer_timeout"]
