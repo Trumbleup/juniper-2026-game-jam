@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dme8buevb1b4x"]
+
+[ext_resource type="Script" uid="uid://bxkcu004s5qrm" path="res://scenes/mr__serious.gd" id="1_blat2"]
+[ext_resource type="Texture2D" uid="uid://dv4thdkp5dl7v" path="res://placeholder_assets/mr_serious.png" id="1_pfroe"]
+
+[node name="Mr_ Serious" type="Node2D" unique_id=2137749233]
+script = ExtResource("1_blat2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1740295680]
+position = Vector2(0, -1)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_pfroe")

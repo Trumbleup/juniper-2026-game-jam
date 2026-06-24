@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c12e6pb0u8rp0" path="res://scenes/animals/frog.tscn" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://dfhtb4bgbjg6u" path="res://scenes/wheels/rabbit_wheel.tscn" id="8_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://57yhcynxfr3i" path="res://scenes/wheels/frog_wheel.tscn" id="9_vtaks"]
+[ext_resource type="PackedScene" uid="uid://dme8buevb1b4x" path="res://scenes/mr__serious.tscn" id="11_kvpfn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8nox5"]
 size = Vector2(24, 1103)
@@ -104,9 +105,12 @@ wheel_type = 2
 position = Vector2(1666, 537)
 wheel_type = 2
 
-[node name="Timer" type="Node" parent="." unique_id=51954178]
+[node name="Timers" type="Node" parent="." unique_id=51954178]
 
-[node name="ScoreTimer" type="Timer" parent="Timer" unique_id=1138993644]
+[node name="ScoreTimer" type="Timer" parent="Timers" unique_id=1138993644]
+autostart = true
+
+[node name="SeriousTimer" type="Timer" parent="Timers" unique_id=2112760239]
 autostart = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1000400579]
@@ -130,5 +134,18 @@ offset_bottom = 407.0
 theme_override_font_sizes/font_size = 60
 text = "10/10"
 
+[node name="SeriousTimeLabel" type="Label" parent="CanvasLayer" unique_id=38844314]
+offset_left = 21.0
+offset_top = 9.0
+offset_right = 505.0
+offset_bottom = 150.0
+theme_override_font_sizes/font_size = 50
+text = "Mr. Serious Appears in x Seconds"
+
+[node name="Mr_ Serious" parent="." unique_id=2137749233 instance=ExtResource("11_kvpfn")]
+position = Vector2(296, 324)
+
 [connection signal="press" from="Entities/Washer" to="." method="_on_washer_press"]
-[connection signal="timeout" from="Timer/ScoreTimer" to="." method="_on_score_timer_timeout"]
+[connection signal="timeout" from="Timers/ScoreTimer" to="." method="_on_score_timer_timeout"]
+[connection signal="timeout" from="Timers/SeriousTimer" to="." method="_on_score_timer_timeout"]
+[connection signal="timeout" from="Timers/SeriousTimer" to="." method="_on_serious_timer_timeout"]
