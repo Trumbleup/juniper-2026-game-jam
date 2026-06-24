@@ -69,7 +69,6 @@ func handleAnimalGroundSpawn() -> void:
 	var MOUSE_SPAWNS = [{"x": 1275, "y": 952}, {"x": 1283, "y": 1027}]
 	var RABBIT_SPAWNS = [{"x": 1467, "y": 885 }, {"x": 1495, "y": 973}]
 	var FROG_SPAWNS = [{"x": 1721, "y": 1019 }, {"x": 1704, "y": 929}]
-	print(animalType)
 	match animalType:
 		"mouse":
 			var spawnPoint = MOUSE_SPAWNS.pick_random()
@@ -85,6 +84,5 @@ func handleAnimalPlacementWheel(wheelPosition: Vector2) -> void:
 	global_position = wheelPosition
 	placedOnWheel = true
 	wheelTimer.start()
-	print("ideally started")
 	
 	
