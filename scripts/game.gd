@@ -3,7 +3,7 @@ extends Node2D
 var score: int
 var washerActive: bool = false
 var animals
-var totalPowerWeight: int = 10
+@export var totalPowerWeight: int = 10
 
 @export var entityHeld: bool = false
 

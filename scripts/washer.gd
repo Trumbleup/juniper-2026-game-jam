@@ -15,7 +15,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if game.entityHeld:
 		return
-	if can_press:
+	if can_press and game.totalPowerWeight >= 7:
 		if is_mouse_hovering:
 			if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 				is_mouse_pressed = true
@@ -26,6 +26,9 @@ func _process(_delta: float) -> void:
 		else:
 			is_mouse_pressed = false # ensures player cannot leave washer while pressing and keep score going
 			press.emit(false)
+	else:
+		is_mouse_pressed = false
+		press.emit(false)
 
 
 func _on_area_2d_mouse_entered() -> void:
