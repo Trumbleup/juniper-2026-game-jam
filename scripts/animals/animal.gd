@@ -29,21 +29,17 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 		handleDragging()
-		if placedOnWheel:
-			print(animalType + " ", wheelTimer.wait_time)
 			
 	
 	
 func _on_grabzone_mouse_entered() -> void:
 	hovering = true
-	print(animalType)
 
 
 func _on_grabzone_mouse_exited() -> void:
 	hovering = false
 	
 func _on_wheel_timeout() -> void:
-	print("runs")
 	handleAnimalGroundSpawn()
 
 func handleDragging() -> void:

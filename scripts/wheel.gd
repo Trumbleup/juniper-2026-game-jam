@@ -22,23 +22,18 @@ func _process(_delta: float) -> void:
 
 func _on_area_2d_mouse_entered() -> void:
 	is_mouse_hovering = true
-	print("is hovered, wheel: ", wheelType)
 
 
 func _on_area_2d_mouse_exited() -> void:
 	is_mouse_hovering = false
 	
 func _on_body_entered(body: Node2D) -> void:
-	print(body)
 	if "animalType" in body:
-		print("holding a ", body.animalType)
 		animal_hovered = true
 		hoveredAnimal = body
 		
 func _on_body_exited(body: Node2D) -> void:
-	print(body)
 	if "animalType" in body:
-		print("animal leaving ", body.animalType)
 		animal_hovered = false
 		hoveredAnimal = null
 	
