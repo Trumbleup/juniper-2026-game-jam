@@ -11,6 +11,7 @@ radius = 11.0
 
 [node name="Mouse" type="CharacterBody2D" unique_id=1492491872]
 z_index = 20
+scale = Vector2(3, 3)
 script = ExtResource("1_a68rm")
 
 [node name="GrabZone" type="Area2D" parent="." unique_id=1478271229]
