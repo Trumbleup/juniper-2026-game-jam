@@ -70,5 +70,8 @@ func handleAnimalGroundSpawn() -> void:
 		"frog":
 			var spawnPoint = FROG_SPAWNS.pick_random()
 			global_position = Vector2(spawnPoint["x"], spawnPoint["y"])
+			
+func handleAnimalPlacementWheel(wheelPosition: Vector2) -> void:
+	global_position = wheelPosition
 	
 	

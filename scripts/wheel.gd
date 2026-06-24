@@ -53,4 +53,7 @@ func handleWheelType() -> void:
 			wheelType = "frog"
 			
 func handleAnimalPlacement(animal: CharacterBody2D) -> void:
-		animal.handleAnimalGroundSpawn()
+		if animal.animalType == wheelType:
+			animal.handleAnimalPlacementWheel(global_position)
+		else:
+			animal.handleAnimalGroundSpawn()

@@ -45,7 +45,7 @@ position = Vector2(1495, 973)
 position = Vector2(1721, 1019)
 
 [node name="Frog2" parent="Entities" unique_id=1736212030 groups=["Animals"] instance=ExtResource("7_u5sy4")]
-position = Vector2(1704, 929)
+position = Vector2(1704, 828)
 
 [node name="MouseWheel1" parent="Entities" unique_id=181955310 instance=ExtResource("5_0tnpc")]
 position = Vector2(1280, 491)
