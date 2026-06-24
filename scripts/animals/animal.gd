@@ -4,6 +4,7 @@ extends CharacterBody2D
 var hovering: bool = false
 var dragging: bool = false
 var animalType: String
+var placedOnWheel: bool
 @onready var game = $"../../"
 
 # Create a dropdown list for the Inspector
@@ -11,17 +12,25 @@ enum AnimalType { MOUSE, RABBIT, FROG }
 @export var animal_type: AnimalType
 
 @onready var grabZone = $GrabZone
+@onready var wheelTimer = $WheelTimer
+
+const SPAWN_WAIT_TIMES = [6.0, 9.0, 12.0, 15.0, 18.0]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	handleAnimalType()
 	grabZone.mouse_entered.connect(_on_grabzone_mouse_entered)
 	grabZone.mouse_exited.connect(_on_grabzone_mouse_exited)
+	wheelTimer.timeout.connect(_on_wheel_timeout)
+	wheelTimer.wait_time = SPAWN_WAIT_TIMES.pick_random()
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 		handleDragging()
+		if placedOnWheel:
+			print(animalType + " ", wheelTimer.wait_time)
 			
 	
 	
@@ -32,6 +41,10 @@ func _on_grabzone_mouse_entered() -> void:
 
 func _on_grabzone_mouse_exited() -> void:
 	hovering = false
+	
+func _on_wheel_timeout() -> void:
+	print("runs")
+	handleAnimalGroundSpawn()
 
 func handleDragging() -> void:
 	if hovering:
@@ -73,5 +86,8 @@ func handleAnimalGroundSpawn() -> void:
 			
 func handleAnimalPlacementWheel(wheelPosition: Vector2) -> void:
 	global_position = wheelPosition
+	placedOnWheel = true
+	wheelTimer.start()
+	print("ideally started")
 	
 	

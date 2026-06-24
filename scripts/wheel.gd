@@ -17,7 +17,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if hoveredAnimal and !game.entityHeld:
+	if hoveredAnimal and !game.entityHeld and !hoveredAnimal.placedOnWheel:
 		handleAnimalPlacement(hoveredAnimal)
 
 func _on_area_2d_mouse_entered() -> void:

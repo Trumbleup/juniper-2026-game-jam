@@ -34,3 +34,5 @@ scale = Vector2(0.22626863, 0.24703874)
 texture = ExtResource("2_gecnt")
 region_enabled = true
 region_rect = Rect2(246.93329, 431.47144, 184.20706, 129.89795)
+
+[node name="WheelTimer" type="Timer" parent="." unique_id=1441376581]
