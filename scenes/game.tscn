@@ -110,8 +110,10 @@ wheel_type = 2
 [node name="ScoreTimer" type="Timer" parent="Timers" unique_id=1138993644]
 autostart = true
 
-[node name="SeriousTimer" type="Timer" parent="Timers" unique_id=2112760239]
+[node name="SeriousAppearanceTimer" type="Timer" parent="Timers" unique_id=2112760239]
 autostart = true
+
+[node name="SeriousLeaveTimer" type="Timer" parent="Timers" unique_id=1994873190]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1000400579]
 
@@ -147,5 +149,6 @@ position = Vector2(296, 324)
 
 [connection signal="press" from="Entities/Washer" to="." method="_on_washer_press"]
 [connection signal="timeout" from="Timers/ScoreTimer" to="." method="_on_score_timer_timeout"]
-[connection signal="timeout" from="Timers/SeriousTimer" to="." method="_on_score_timer_timeout"]
-[connection signal="timeout" from="Timers/SeriousTimer" to="." method="_on_serious_timer_timeout"]
+[connection signal="timeout" from="Timers/SeriousAppearanceTimer" to="." method="_on_score_timer_timeout"]
+[connection signal="timeout" from="Timers/SeriousAppearanceTimer" to="." method="_on_serious_appearance_timer_timeout"]
+[connection signal="timeout" from="Timers/SeriousLeaveTimer" to="." method="_on_serious_leave_timer_timeout"]
