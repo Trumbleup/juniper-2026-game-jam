@@ -19,15 +19,12 @@ collision_layer = 16
 collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GrabZone" unique_id=1299213898]
-position = Vector2(8, 7)
 shape = SubResource("CircleShape2D_s0nli")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=820037690]
-position = Vector2(8, 7)
 shape = SubResource("CircleShape2D_8nox5")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=553064484]
-position = Vector2(14, 6)
 scale = Vector2(0.23954101, 0.23954101)
 texture = ExtResource("2_r0e6d")
 region_enabled = true
