@@ -12,9 +12,11 @@ var animals
 @onready var mr_serious = $"Mr_ Serious"
 @onready var serious_appearance_timer = $Timers/SeriousAppearanceTimer
 @onready var serious_leave_timer = $Timers/SeriousLeaveTimer
+@onready var reset_button = $CanvasLayer/ResetButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	get_tree().paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	animals = get_tree().get_nodes_in_group("Animals")
 
@@ -22,6 +24,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	handlePowerWeight()
 	handleSeriousAppearance()
+	handleLose()
 
 
 func _on_score_timer_timeout() -> void:
@@ -54,7 +57,7 @@ func _on_serious_leave_timer_timeout() -> void:
 	serious_time_leave -= 1
 	
 func handlePowerWeight() -> void:
-	var powerWeight: int
+	var powerWeight: int = 0
 	for animal in animals:
 		if animal.placedOnWheel:
 			powerWeight += animal.score_weight
@@ -66,6 +69,11 @@ func handleSeriousAppearance() -> void:
 		mr_serious.visible = false	
 	else:
 		mr_serious.visible = true
+		
+func handleLose() -> void:
+	if !washerActive and serious_appearance_timer.is_stopped():
+		get_tree().paused = true
+		reset_button.visible = true
 		
 		
 		

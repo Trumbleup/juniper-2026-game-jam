@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://f261vebkyjeu"]
+
+[ext_resource type="Script" uid="uid://2td5ye4qvwdl" path="res://scripts/ui/reset_button.gd" id="1_li5mg"]
+
+[node name="ResetButton" type="Button" unique_id=2067306892]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1605.0
+offset_bottom = -1011.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Reset"
+script = ExtResource("1_li5mg")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
