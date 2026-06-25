@@ -117,6 +117,9 @@ autostart = true
 
 [node name="SeriousLeaveTimer" type="Timer" parent="Timers" unique_id=1994873190]
 
+[node name="GameTimer" type="Timer" parent="Timers" unique_id=1877282034]
+autostart = true
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1000400579]
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer" unique_id=537881637]
@@ -155,6 +158,14 @@ offset_top = 413.0
 offset_right = -874.0
 offset_bottom = -598.0
 
+[node name="GameTimeLabel" type="Label" parent="CanvasLayer" unique_id=142519251]
+offset_left = 1721.0
+offset_top = 6.0
+offset_right = 1876.0
+offset_bottom = 61.0
+theme_override_font_sizes/font_size = 40
+text = "2:00 left"
+
 [node name="Mr_ Serious" parent="." unique_id=2137749233 instance=ExtResource("11_kvpfn")]
 position = Vector2(296, 324)
 
@@ -162,3 +173,4 @@ position = Vector2(296, 324)
 [connection signal="timeout" from="Timers/ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="Timers/SeriousAppearanceTimer" to="." method="_on_serious_appearance_timer_timeout"]
 [connection signal="timeout" from="Timers/SeriousLeaveTimer" to="." method="_on_serious_leave_timer_timeout"]
+[connection signal="timeout" from="Timers/GameTimer" to="." method="_on_game_timer_timeout"]

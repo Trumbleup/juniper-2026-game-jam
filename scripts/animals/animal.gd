@@ -58,6 +58,7 @@ func handleMovement(delta: float, speed) -> void:
 		direction = 1
 		sprite_2D.flip_h = true
 	position.x += direction * speed * delta
+	move_and_slide()
 
 func handleDragging() -> void:
 	if hovering:
