@@ -132,3 +132,4 @@ collision_mask = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1536539292]
 libraries/ = SubResource("AnimationLibrary_13574")
+autoplay = &"rabbit_run"

@@ -145,3 +145,4 @@ collision_mask = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=37449004]
 libraries/ = SubResource("AnimationLibrary_xw5aj")
+autoplay = &"frog_run"
