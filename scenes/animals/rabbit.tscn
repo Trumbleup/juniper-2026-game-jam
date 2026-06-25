@@ -21,7 +21,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1]
+"values": [5]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -110,10 +110,11 @@ shape = SubResource("CircleShape2D_s0nli")
 shape = SubResource("CircleShape2D_kqc4y")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1571452848]
-scale = Vector2(0.22626863, 0.24703874)
+scale = Vector2(0.31584126, 0.3448336)
 texture = ExtResource("2_gecnt")
+offset = Vector2(0, -23.199594)
 hframes = 6
-frame = 1
+frame = 5
 region_rect = Rect2(246.93329, 431.47144, 184.20706, 129.89795)
 
 [node name="WheelTimer" type="Timer" parent="." unique_id=1441376581]
