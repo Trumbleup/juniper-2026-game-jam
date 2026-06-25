@@ -20,7 +20,7 @@ enum AnimalType { MOUSE, RABBIT, FROG }
 @onready var grabZone = $GrabZone
 @onready var wheelTimer = $WheelTimer
 
-const SPAWN_WAIT_TIMES = [6.0, 9.0, 12.0, 15.0, 18.0]
+const SPAWN_WAIT_TIMES = [6.0, 7.5, 9.0, 10.5, 12.0, 13.5, 15.0, 16.5, 18.0]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
