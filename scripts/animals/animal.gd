@@ -31,6 +31,7 @@ const SPAWN_WAIT_TIMES = {
 	
 func _physics_process(delta):
 	if dragging == true:
+		$AnimationPlayer.current_animation = str(animalType) + "_idle"
 		var tween = get_tree().create_tween()
 		tween.tween_property(self, "position", get_global_mouse_position(), delta * delay)
 
@@ -51,6 +52,7 @@ func _input(event):
 		else:
 			game.entityHeld = false
 			dragging = false
+			$AnimationPlayer.current_animation = str(animalType) + "_run"
 
 func _on_grabzone_mouse_entered() -> void:
 	hovering = true
