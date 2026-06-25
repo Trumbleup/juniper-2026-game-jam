@@ -21,11 +21,18 @@ enum AnimalType { MOUSE, RABBIT, FROG }
 @onready var grabZone = $GrabZone
 @onready var wheelTimer = $WheelTimer
 
+var delay = 2
+
 const SPAWN_WAIT_TIMES = {
 	"mouse": [6.0, 8.0, 10.0, 12.0, 14.0, 16.0],
 	"rabbit": [7.0, 11.0, 15.0, 18.0],
 	"frog": [12.0, 18.0, 24.0],
 	}
+	
+func _physics_process(delta):
+	if dragging == true:
+		var tween = get_tree().create_tween()
+		tween.tween_property(self, "position", get_global_mouse_position(), delta * delay)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -35,6 +42,15 @@ func _ready() -> void:
 	wheelTimer.timeout.connect(_on_wheel_timeout)
 	wheelTimer.wait_time = SPAWN_WAIT_TIMES[animalType].pick_random()
 
+func _input(event):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed:
+			if hovering:
+				game.entityHeld = true
+				dragging = true
+		else:
+			game.entityHeld = false
+			dragging = false
 
 func _on_grabzone_mouse_entered() -> void:
 	hovering = true
@@ -59,19 +75,6 @@ func handleMovement(delta: float, speed) -> void:
 		sprite_2D.flip_h = true
 	position.x += direction * speed * delta
 	move_and_slide()
-
-func handleDragging() -> void:
-	if hovering:
-		if game.entityHeld == true and dragging == false:
-			return 
-		else:
-			if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-				position = get_global_mouse_position()
-				dragging = true
-				game.entityHeld = true
-			else:
-				dragging = false
-				game.entityHeld = false	
 	
 func handleAnimalType() -> void:
 	match animal_type:

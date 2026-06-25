@@ -5,5 +5,4 @@ extends Animal
 const SPEED: int = 200
 
 func _process(delta: float) -> void:
-	handleDragging()
 	handleMovement(delta, SPEED)
