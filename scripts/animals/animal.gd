@@ -47,6 +47,7 @@ func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and !placedOnWheel:
 		if event.pressed:
 			if hovering:
+				get_viewport().set_input_as_handled()
 				game.entityHeld = true
 				dragging = true
 		else:
