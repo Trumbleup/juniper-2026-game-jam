@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dme8buevb1b4x"]
 
 [ext_resource type="Script" uid="uid://bxkcu004s5qrm" path="res://scenes/mr__serious.gd" id="1_blat2"]
-[ext_resource type="Texture2D" uid="uid://c303nnfibdeu1" path="res://placeholder_assets/mrserious.png" id="2_blat2"]
+[ext_resource type="Texture2D" uid="uid://vkpvbygkbv8b" path="res://placeholder_assets/mr_serious/mr_s.png" id="2_blat2"]
 
 [node name="Mr_ Serious" type="Node2D" unique_id=2137749233]
 script = ExtResource("1_blat2")
