@@ -34,20 +34,23 @@ func _on_washer_press(isActive: bool) -> void:
 	washerActive = isActive
 	
 func _on_serious_appearance_timer_timeout() -> void:
-	if serious_time_appearance == 0 and serious_leave_timer.is_stopped():
+	if serious_time_appearance == 1 and serious_leave_timer.is_stopped():
 		serious_appearance_timer.stop()
 		serious_time_leave = 3
 		serious_leave_timer.start()
+		$CanvasLayer/SeriousTimeLabel.text = "Mr. Serious Is Here!"
 		return
 	serious_time_appearance -= 1
-	$CanvasLayer/SeriousTimeLabel.text = "Mr. Serious Appears in " + str(serious_time_appearance) + " Seconds"
+	$CanvasLayer/SeriousTimeLabel.text = "Mr. Serious Appears in \n" + str(serious_time_appearance) + " Seconds"
 
 func _on_serious_leave_timer_timeout() -> void:
-	if serious_time_leave == 0 and serious_appearance_timer.is_stopped():
+	if serious_time_leave == 1 and serious_appearance_timer.is_stopped():
 		serious_leave_timer.stop()
 		serious_time_appearance = 30
 		serious_appearance_timer.start()
+		$CanvasLayer/SeriousTimeLabel.text = "Mr. Serious Appears in \n" + str(serious_time_appearance) + " Seconds"
 		return
+		
 	serious_time_leave -= 1
 	
 func handlePowerWeight() -> void:

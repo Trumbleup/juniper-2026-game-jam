@@ -142,7 +142,8 @@ offset_top = 9.0
 offset_right = 505.0
 offset_bottom = 150.0
 theme_override_font_sizes/font_size = 50
-text = "Mr. Serious Appears in x Seconds"
+text = "Mr. Serious Appears 
+in 30 Seconds"
 
 [node name="Mr_ Serious" parent="." unique_id=2137749233 instance=ExtResource("11_kvpfn")]
 position = Vector2(296, 324)
