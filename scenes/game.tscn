@@ -161,4 +161,5 @@ position = Vector2(296, 324)
 [connection signal="press" from="Entities/Washer" to="." method="_on_washer_press"]
 [connection signal="timeout" from="Timers/ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="Timers/SeriousAppearanceTimer" to="." method="_on_serious_appearance_timer_timeout"]
+[connection signal="timeout" from="Timers/SeriousAppearanceTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="Timers/SeriousLeaveTimer" to="." method="_on_serious_leave_timer_timeout"]
