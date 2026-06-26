@@ -4,6 +4,7 @@ var is_mouse_hovering: bool = false
 var is_mouse_pressed: bool = false
 var can_press: bool = true
 @onready var game = $"../../"
+@onready var cursor = $"../Cursor"
 signal press(isActive: bool)
 
 # Called when the node enters the scene tree for the first time.
@@ -15,6 +16,8 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if game.entityHeld:
 		return
+	if can_press and is_mouse_hovering and !is_mouse_pressed:
+		cursor.updateHandSprite("hover_washer")
 	if can_press and game.totalPowerWeight >= 7:
 		if is_mouse_hovering:
 			if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
@@ -33,10 +36,14 @@ func _process(_delta: float) -> void:
 
 func _on_area_2d_mouse_entered() -> void:
 	is_mouse_hovering = true
+	if !game.entityHeld:
+		cursor.updateHandSprite("hover_washer")
 
 
 func _on_area_2d_mouse_exited() -> void:
 	is_mouse_hovering = false
+	if !game.entityHeld:
+		cursor.updateHandSprite("hand_open")
 
 
 func _on_animal_is_held(isDragging: bool) -> void:

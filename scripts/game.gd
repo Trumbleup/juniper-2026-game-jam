@@ -14,6 +14,7 @@ var animals
 @onready var serious_appearance_timer = $Timers/SeriousAppearanceTimer
 @onready var serious_leave_timer = $Timers/SeriousLeaveTimer
 @onready var reset_button = $CanvasLayer/ResetButton
+@onready var cursor = $Entities/Cursor
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -39,6 +40,8 @@ func _on_score_timer_timeout() -> void:
 
 
 func _on_washer_press(isActive: bool) -> void:
+	if isActive:
+		cursor.updateHandSprite("washer_pushed")
 	washerActive = isActive
 	
 func _on_serious_appearance_timer_timeout() -> void:
@@ -93,6 +96,9 @@ func handleWin() -> void:
 	if game_time_in_seconds == 0:
 		get_tree().paused = true
 		reset_button.visible = true
+		
+		
+		
 		
 		
 		

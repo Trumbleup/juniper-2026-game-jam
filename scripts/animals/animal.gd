@@ -14,9 +14,13 @@ var animalType: String
 var placedOnWheel: bool
 var isOnGround: bool
 var isHoveredOverWheel: bool
+
+var drag_offset = Vector2.ZERO
+
 @onready var game = $"../../"
 @onready var ground = $"../../Ground"
 @onready var serious_appearance_timer = $"../../Timers/SeriousAppearanceTimer"
+@onready var cursor = $"../Cursor"
 
 # Create a dropdown list for the Inspector
 enum AnimalType { MOUSE, RABBIT, FROG }
@@ -42,7 +46,7 @@ func _physics_process(delta):
 		animation_player.current_animation = str(animalType) + "_idle"
 		#var tween = get_tree().create_tween()
 		#tween.tween_property(self, "position", get_global_mouse_position(), delta * delay)
-		global_position = get_global_mouse_position()
+		global_position = get_global_mouse_position() + Vector2(0, 34)
 	
 
 # Called when the node enters the scene tree for the first time.
@@ -59,11 +63,14 @@ func _input(event):
 			get_viewport().set_input_as_handled()
 			game.entityHeld = true
 			dragging = true
+			drag_offset = global_position - get_global_mouse_position()
+			cursor.updateHandSprite("animal_grabbed")
 		else:
 			print("happens")
 			game.entityHeld = false
 			dragging = false
 			animation_player.current_animation = str(animalType) + "_run"
+			cursor.updateHandSprite("hand_open")
 			if !isOnGround and !isHoveredOverWheel:
 				print("fires")
 				handleAnimalGroundSpawn()
@@ -122,6 +129,7 @@ func handleAnimalPlacementWheel(wheelPosition: Vector2) -> void:
 	placedOnWheel = true
 	global_position = wheelPosition
 	sprite_2D.flip_h = false
+	direction = -1
 	wheelTimer.wait_time = SPAWN_WAIT_TIMES[animalType].pick_random()
 	wheelTimer.start()
 	

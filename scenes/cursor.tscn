@@ -1,19 +1,44 @@
 [gd_scene format=3 uid="uid://cj7icw15ggbe"]
 
 [ext_resource type="Script" uid="uid://cxcqfmkjeejls" path="res://scripts/cursor.gd" id="1_s0nli"]
-[ext_resource type="Texture2D" uid="uid://i2hxw7hxlpjg" path="res://placeholder_assets/ui/crosshair.png" id="2_ndevg"]
+[ext_resource type="Texture2D" uid="uid://cv6n0judb7sey" path="res://placeholder_assets/cursor.png" id="2_s0nli"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8nox5"]
+radius = 51.0392
 
 [node name="Cursor" type="Node2D" unique_id=1765368202]
 z_index = 100
 script = ExtResource("1_s0nli")
+metadata/_edit_horizontal_guides_ = [34.0]
+metadata/_edit_vertical_guides_ = [0.0]
 
-[node name="Marker" type="Sprite2D" parent="." unique_id=1459619324]
-texture = ExtResource("2_ndevg")
-
-[node name="Area2D" type="Area2D" parent="Marker" unique_id=1612219847]
+[node name="Area2D" type="Area2D" parent="." unique_id=1612219847]
 collision_mask = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Marker/Area2D" unique_id=1121804688]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1121804688]
 shape = SubResource("CircleShape2D_8nox5")
+
+[node name="HandSprites" type="Node2D" parent="." unique_id=630263566]
+
+[node name="OpenHand" type="Sprite2D" parent="HandSprites" unique_id=1459619324]
+texture = ExtResource("2_s0nli")
+region_enabled = true
+region_rect = Rect2(16, 8, 72, 88)
+
+[node name="PointedHand" type="Sprite2D" parent="HandSprites" unique_id=1369392237]
+visible = false
+texture = ExtResource("2_s0nli")
+region_enabled = true
+region_rect = Rect2(120, 16, 72, 72)
+
+[node name="PushedHand" type="Sprite2D" parent="HandSprites" unique_id=1962919599]
+visible = false
+texture = ExtResource("2_s0nli")
+region_enabled = true
+region_rect = Rect2(216, 16, 72, 72)
+
+[node name="GrabbedHand" type="Sprite2D" parent="HandSprites" unique_id=1375308470]
+visible = false
+texture = ExtResource("2_s0nli")
+region_enabled = true
+region_rect = Rect2(304, 8, 96, 88)
