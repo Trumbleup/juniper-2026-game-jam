@@ -40,6 +40,8 @@ func _process(_delta: float) -> void:
 func _on_wheel_timeout() -> void:
 	if serious_appearance_timer.is_stopped():
 		return
+	if game.serious_time_appearance == 3:
+		return
 	if occupiedAnimal:
 		handleAnimalPlacement(occupiedAnimal)
 
