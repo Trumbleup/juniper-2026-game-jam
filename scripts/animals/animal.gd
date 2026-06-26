@@ -121,6 +121,7 @@ func handleAnimalGroundSpawn() -> void:
 func handleAnimalPlacementWheel(wheelPosition: Vector2) -> void:
 	placedOnWheel = true
 	global_position = wheelPosition
+	sprite_2D.flip_h = false
 	wheelTimer.wait_time = SPAWN_WAIT_TIMES[animalType].pick_random()
 	wheelTimer.start()
 	
