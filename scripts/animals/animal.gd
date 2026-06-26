@@ -5,13 +5,17 @@ var direction = -1
 
 @onready var ray_cast_right: RayCast2D = $RayCastRight
 @onready var ray_cast_left: RayCast2D = $RayCastLeft
-@onready var sprite_2D: Sprite2D = $Sprite2D
+@onready var sprite_2D: Sprite2D = $Pivot/Sprite2D
+@onready var animation_player: AnimationPlayer = $Pivot/AnimationPlayer
 
 var hovering: bool = false
 var dragging: bool = false
 var animalType: String
 var placedOnWheel: bool
+var isOnGround: bool
+var isHoveredOverWheel: bool
 @onready var game = $"../../"
+@onready var ground = $"../../Ground"
 @onready var serious_appearance_timer = $"../../Timers/SeriousAppearanceTimer"
 
 # Create a dropdown list for the Inspector
@@ -23,6 +27,10 @@ enum AnimalType { MOUSE, RABBIT, FROG }
 
 var delay = 2
 
+var mouse_spawns = [{"x": 1275, "y": 952}, {"x": 1283, "y": 1027}]
+var rabbit_spawns = [{"x": 1467, "y": 885 }, {"x": 1495, "y": 973}]
+var frog_spawns = [{"x": 1721, "y": 1019 }, {"x": 1704, "y": 929}]
+
 const SPAWN_WAIT_TIMES = {
 	"mouse": [6.0, 8.0, 10.0, 12.0, 14.0, 16.0],
 	"rabbit": [7.0, 11.0, 15.0, 18.0],
@@ -31,9 +39,11 @@ const SPAWN_WAIT_TIMES = {
 	
 func _physics_process(delta):
 	if dragging == true:
-		$AnimationPlayer.current_animation = str(animalType) + "_idle"
-		var tween = get_tree().create_tween()
-		tween.tween_property(self, "position", get_global_mouse_position(), delta * delay)
+		animation_player.current_animation = str(animalType) + "_idle"
+		#var tween = get_tree().create_tween()
+		#tween.tween_property(self, "position", get_global_mouse_position(), delta * delay)
+		global_position = get_global_mouse_position()
+	
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -44,16 +54,20 @@ func _ready() -> void:
 	wheelTimer.wait_time = SPAWN_WAIT_TIMES[animalType].pick_random()
 
 func _input(event):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and !placedOnWheel:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and !placedOnWheel and hovering:
 		if event.pressed:
-			if hovering:
-				get_viewport().set_input_as_handled()
-				game.entityHeld = true
-				dragging = true
+			get_viewport().set_input_as_handled()
+			game.entityHeld = true
+			dragging = true
 		else:
+			print("happens")
 			game.entityHeld = false
 			dragging = false
-			$AnimationPlayer.current_animation = str(animalType) + "_run"
+			animation_player.current_animation = str(animalType) + "_run"
+			if !isOnGround and !isHoveredOverWheel:
+				print("fires")
+				handleAnimalGroundSpawn()
+			
 
 func _on_grabzone_mouse_entered() -> void:
 	hovering = true
@@ -89,19 +103,17 @@ func handleAnimalType() -> void:
 			animalType = "frog"
 			
 func handleAnimalGroundSpawn() -> void:
-	wheelTimer.stop()
-	var MOUSE_SPAWNS = [{"x": 1275, "y": 952}, {"x": 1283, "y": 1027}]
-	var RABBIT_SPAWNS = [{"x": 1467, "y": 885 }, {"x": 1495, "y": 973}]
-	var FROG_SPAWNS = [{"x": 1721, "y": 1019 }, {"x": 1704, "y": 929}]
+	if !wheelTimer.is_stopped():
+		wheelTimer.stop()
 	match animalType:
 		"mouse":
-			var spawnPoint = MOUSE_SPAWNS.pick_random()
+			var spawnPoint = mouse_spawns.pick_random()
 			global_position = Vector2(spawnPoint["x"], spawnPoint["y"])
 		"rabbit":
-			var spawnPoint = RABBIT_SPAWNS.pick_random()
+			var spawnPoint = rabbit_spawns.pick_random()
 			global_position = Vector2(spawnPoint["x"], spawnPoint["y"])
 		"frog":
-			var spawnPoint = FROG_SPAWNS.pick_random()
+			var spawnPoint = frog_spawns.pick_random()
 			global_position = Vector2(spawnPoint["x"], spawnPoint["y"])
 	placedOnWheel = false
 	

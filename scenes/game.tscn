@@ -12,9 +12,13 @@
 [ext_resource type="PackedScene" uid="uid://57yhcynxfr3i" path="res://scenes/wheels/frog_wheel.tscn" id="9_vtaks"]
 [ext_resource type="PackedScene" uid="uid://f261vebkyjeu" path="res://scenes/ui/reset_button.tscn" id="11_dinhu"]
 [ext_resource type="PackedScene" uid="uid://dme8buevb1b4x" path="res://scenes/mr__serious.tscn" id="11_kvpfn"]
+[ext_resource type="Script" uid="uid://dgiiui51y47ld" path="res://scripts/ground.gd" id="13_kvuet"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8nox5"]
 size = Vector2(24, 1103)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4dr6"]
+size = Vector2(1892.5, 206)
 
 [node name="Game" type="Node2D" unique_id=423232976]
 script = ExtResource("1_uwrxv")
@@ -169,8 +173,19 @@ text = "2:00 left"
 [node name="Mr_ Serious" parent="." unique_id=2137749233 instance=ExtResource("11_kvpfn")]
 position = Vector2(296, 324)
 
+[node name="Ground" type="Area2D" parent="." unique_id=1476022857]
+collision_layer = 2
+collision_mask = 16
+script = ExtResource("13_kvuet")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=472935953]
+position = Vector2(961.75, 976)
+shape = SubResource("RectangleShape2D_d4dr6")
+
 [connection signal="press" from="Entities/Washer" to="." method="_on_washer_press"]
 [connection signal="timeout" from="Timers/ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="Timers/SeriousAppearanceTimer" to="." method="_on_serious_appearance_timer_timeout"]
 [connection signal="timeout" from="Timers/SeriousLeaveTimer" to="." method="_on_serious_leave_timer_timeout"]
 [connection signal="timeout" from="Timers/GameTimer" to="." method="_on_game_timer_timeout"]
+[connection signal="body_entered" from="Ground" to="Ground" method="_on_body_entered"]
+[connection signal="body_exited" from="Ground" to="Ground" method="_on_body_exited"]

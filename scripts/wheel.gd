@@ -34,11 +34,13 @@ func _on_area_2d_mouse_exited() -> void:
 	
 func _on_body_entered(body: Node2D) -> void:
 	if "animalType" in body:
+		body.isHoveredOverWheel = true
 		animal_hovered = true
 		hoveredAnimal = body
 		
 func _on_body_exited(body: Node2D) -> void:
 	if "animalType" in body:
+		body.isHoveredOverWheel = false
 		animal_hovered = false
 		hoveredAnimal = null
 	

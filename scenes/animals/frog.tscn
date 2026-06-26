@@ -15,7 +15,7 @@ step = 0.083333336
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/path = NodePath("Pivot/Sprite2D:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -27,7 +27,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/path = NodePath("Pivot/Sprite2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -44,7 +44,7 @@ step = 0.083333336
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Pivot/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -62,7 +62,7 @@ step = 0.083333336
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Pivot/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -74,7 +74,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/path = NodePath("Pivot/Sprite2D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -86,7 +86,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:position")
+tracks/2/path = NodePath("Pivot/Sprite2D:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -122,14 +122,6 @@ shape = SubResource("CircleShape2D_s0nli")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1292240921]
 shape = SubResource("CircleShape2D_8nox5")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1731209719]
-position = Vector2(0, -0.5)
-scale = Vector2(0.368, 0.368)
-texture = ExtResource("2_t246m")
-offset = Vector2(-21.73913, -107.33695)
-hframes = 4
-region_rect = Rect2(403.13336, 170.05334, 203.1333, 125.033356)
-
 [node name="WheelTimer" type="Timer" parent="." unique_id=16075137]
 
 [node name="RayCastLeft" type="RayCast2D" parent="." unique_id=1012461479]
@@ -143,6 +135,17 @@ rotation = -1.5707964
 target_position = Vector2(-1.5590396e-06, 35.666668)
 collision_mask = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=37449004]
+[node name="Pivot" type="Node2D" parent="." unique_id=1712811167]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot" unique_id=37449004]
+root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_xw5aj")
 autoplay = &"frog_run"
+
+[node name="Sprite2D" type="Sprite2D" parent="Pivot" unique_id=1731209719]
+position = Vector2(0, -0.5)
+scale = Vector2(0.368, 0.368)
+texture = ExtResource("2_t246m")
+offset = Vector2(-21.73913, -107.33695)
+hframes = 4
+region_rect = Rect2(403.13336, 170.05334, 203.1333, 125.033356)
