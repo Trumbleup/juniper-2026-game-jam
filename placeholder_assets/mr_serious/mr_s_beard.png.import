@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0kqsj8emgjwl"
-path="res://.godot/imported/mr_s_hair.png-5498432e3c69421abc7a27a9c61f7f7c.ctex"
+uid="uid://dbs6081h8b8t1"
+path="res://.godot/imported/mr_s_beard.png-1b4d9ba238c71ad6306b0fe52b6b79ed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://placeholder_assets/mr_serious/mr_s_hair.png"
-dest_files=["res://.godot/imported/mr_s_hair.png-5498432e3c69421abc7a27a9c61f7f7c.ctex"]
+source_file="res://placeholder_assets/mr_serious/mr_s_beard.png"
+dest_files=["res://.godot/imported/mr_s_beard.png-1b4d9ba238c71ad6306b0fe52b6b79ed.ctex"]
 
 [params]
 

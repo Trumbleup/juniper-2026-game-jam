@@ -1,12 +1,86 @@
 [gd_scene format=3 uid="uid://dme8buevb1b4x"]
 
 [ext_resource type="Script" uid="uid://bxkcu004s5qrm" path="res://scenes/mr__serious.gd" id="1_blat2"]
-[ext_resource type="Texture2D" uid="uid://vkpvbygkbv8b" path="res://placeholder_assets/mr_serious/mr_s.png" id="2_blat2"]
+[ext_resource type="Texture2D" uid="uid://d2etmbpo3lmmh" path="res://placeholder_assets/mr_serious/mr_s_full.png" id="2_blat2"]
+[ext_resource type="Texture2D" uid="uid://d0kqsj8emgjwl" path="res://placeholder_assets/mr_serious/mr_s_hair.png" id="3_din76"]
+[ext_resource type="Texture2D" uid="uid://s4v5qmmo63ew" path="res://placeholder_assets/mr_serious/mr_s_shave.png" id="4_f6bm3"]
+[ext_resource type="Texture2D" uid="uid://tunt1ewiibom" path="res://placeholder_assets/mr_serious/mr_s_ears.png" id="5_b65dj"]
+[ext_resource type="Texture2D" uid="uid://dbs6081h8b8t1" path="res://placeholder_assets/mr_serious/mr_s_beard.png" id="6_56xvq"]
+[ext_resource type="Texture2D" uid="uid://i28kcisexywo" path="res://placeholder_assets/mr_serious/mr_s_brows.png" id="7_xdcjp"]
+[ext_resource type="Texture2D" uid="uid://bhg445on6rglg" path="res://placeholder_assets/mr_serious/mr_s_slick.png" id="8_sdkqf"]
+[ext_resource type="Texture2D" uid="uid://dnbv08n252rm" path="res://placeholder_assets/mr_serious/mr_s_glasses2.png" id="9_rf445"]
+
+[sub_resource type="Animation" id="Animation_3xnyn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1co6y"]
+resource_name = "mr_s_idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.56666666, 1),
+"transitions": PackedFloat32Array(1, 0.50000006, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 6.9999995), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q6gis"]
+_data = {
+&"RESET": SubResource("Animation_3xnyn"),
+&"mr_s_idle": SubResource("Animation_1co6y")
+}
 
 [node name="Mr_ Serious" type="Node2D" unique_id=2137749233]
 script = ExtResource("1_blat2")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1740295680]
+visible = false
 position = Vector2(0, -1)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_blat2")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=156854945]
+scale = Vector2(0.35, 0.35)
+
+[node name="MrSHair" type="Sprite2D" parent="Node2D" unique_id=206421313]
+texture = ExtResource("3_din76")
+
+[node name="MrSShave" type="Sprite2D" parent="Node2D" unique_id=1481250471]
+texture = ExtResource("4_f6bm3")
+
+[node name="MrSEars" type="Sprite2D" parent="Node2D" unique_id=332425078]
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("5_b65dj")
+
+[node name="MrSBeard" type="Sprite2D" parent="Node2D" unique_id=368737195]
+texture = ExtResource("6_56xvq")
+
+[node name="MrSBrows" type="Sprite2D" parent="Node2D" unique_id=70136668]
+texture = ExtResource("7_xdcjp")
+
+[node name="MrSSlick" type="Sprite2D" parent="Node2D" unique_id=1395584976]
+texture = ExtResource("8_sdkqf")
+
+[node name="MrSGlasses" type="Sprite2D" parent="Node2D" unique_id=739001609]
+texture = ExtResource("9_rf445")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=330548080]
+libraries/ = SubResource("AnimationLibrary_q6gis")
+autoplay = &"mr_s_idle"
