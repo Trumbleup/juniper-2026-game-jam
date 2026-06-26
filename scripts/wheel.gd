@@ -28,7 +28,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if hoveredAnimal and !game.entityHeld and !wheelOccupied:
+	if hoveredAnimal and !game.entityHeld:
 		if !hoveredAnimal.placedOnWheel:
 			handleAnimalPlacement(hoveredAnimal)
 	
@@ -44,6 +44,9 @@ func _on_wheel_timeout() -> void:
 		return
 	if occupiedAnimal:
 		handleAnimalPlacement(occupiedAnimal)
+		occupiedAnimal = null
+		wheelOccupied = false
+		hoveredAnimal = null
 
 func _on_area_2d_mouse_entered() -> void:
 	is_mouse_hovering = true
@@ -78,6 +81,7 @@ func handleAnimalPlacement(animal: CharacterBody2D) -> void:
 	if wheelOccupied:
 		animal.handleAnimalGroundSpawn()
 		hoveredAnimal = null
+		return
 	if animal.animalType == wheelType and !wheelOccupied:
 		animal.handleAnimalPlacementWheel(global_position)
 		wheelOccupied = true
@@ -85,10 +89,4 @@ func handleAnimalPlacement(animal: CharacterBody2D) -> void:
 		wheelTimer.wait_time = SPAWN_WAIT_TIMES[animal.animalType].pick_random()
 		wheelTimer.start()
 		hoveredAnimal = null
-	else:
-		if !wheelTimer.is_stopped():
-			wheelTimer.stop()
-		animal.handleAnimalGroundSpawn()
-		occupiedAnimal = null
-		wheelOccupied = false
-		hoveredAnimal = null
+		
