@@ -30,7 +30,6 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if hoveredAnimal and !game.entityHeld and !wheelOccupied:
 		if !hoveredAnimal.placedOnWheel:
-			print("runs")
 			handleAnimalPlacement(hoveredAnimal)
 	
 	if wheelOccupied:
