@@ -126,8 +126,13 @@ func handleAnimalGroundSpawn() -> void:
 	
 			
 func handleAnimalPlacementWheel(wheelPosition: Vector2) -> void:
+	var offsetDictionary = {
+		"mouse": Vector2(0, 40),
+		"rabbit": Vector2(0, 60),
+		"frog": Vector2(0, 120)
+	}
 	placedOnWheel = true
-	global_position = wheelPosition
+	global_position = wheelPosition + offsetDictionary[animalType]
 	sprite_2D.flip_h = false
 	direction = -1
 	wheelTimer.wait_time = SPAWN_WAIT_TIMES[animalType].pick_random()
