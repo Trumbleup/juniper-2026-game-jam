@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bi1n7hx48vobu"]
 
 [ext_resource type="Script" uid="uid://3bnsok3vhiqc" path="res://scripts/game.gd" id="1_uwrxv"]
-[ext_resource type="Texture2D" uid="uid://dc2etljci5tvq" path="res://placeholder_assets/laundromat.png" id="2_vtaks"]
 [ext_resource type="PackedScene" uid="uid://cj7icw15ggbe" path="res://scenes/cursor.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://2biomjgu07db" path="res://scenes/washer.tscn" id="3_lnu2h"]
+[ext_resource type="Texture2D" uid="uid://bspixtsm3iv6" path="res://placeholder_assets/wheels/wheel_placement.png" id="3_trtic"]
 [ext_resource type="PackedScene" uid="uid://dh5oaeniqnt7w" path="res://scenes/wheels/mouse_wheel.tscn" id="5_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://cjuqpnei3umne" path="res://scenes/animals/mouse.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://5fk0851ispqx" path="res://scenes/animals/rabbit.tscn" id="6_p57ef"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://f261vebkyjeu" path="res://scenes/ui/reset_button.tscn" id="11_dinhu"]
 [ext_resource type="PackedScene" uid="uid://dme8buevb1b4x" path="res://scenes/mr__serious.tscn" id="11_kvpfn"]
 [ext_resource type="Script" uid="uid://dgiiui51y47ld" path="res://scripts/ground.gd" id="13_kvuet"]
+[ext_resource type="Texture2D" uid="uid://iwcuhre8s3yr" path="res://placeholder_assets/laundromat2.png" id="14_trtic"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8nox5"]
 size = Vector2(24, 1103)
@@ -24,12 +25,20 @@ size = Vector2(1892.5, 206)
 script = ExtResource("1_uwrxv")
 
 [node name="BG" type="Sprite2D" parent="." unique_id=855200895]
-texture = ExtResource("2_vtaks")
+position = Vector2(-384, -146)
+scale = Vector2(0.95798004, 0.95798004)
+texture = ExtResource("14_trtic")
 centered = false
 
 [node name="Camera2D" type="Camera2D" parent="BG" unique_id=784709716]
-scale = Vector2(1.4222223, 2.1333334)
+position = Vector2(496.87878, 119.00039)
+scale = Vector2(1.2190963, 1.8286445)
 anchor_mode = 0
+
+[node name="WheelPlacement" type="Sprite2D" parent="BG" unique_id=101713238]
+position = Vector2(2071.0244, 614.8354)
+scale = Vector2(0.5111189, 0.5111189)
+texture = ExtResource("3_trtic")
 
 [node name="Borders" type="Node2D" parent="." unique_id=1911136774]
 
