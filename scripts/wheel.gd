@@ -5,25 +5,44 @@ var animal_hovered: bool = false
 var wheelType: String
 var hoveredAnimal: CharacterBody2D = null
 var wheelOccupied: bool
+var occupiedAnimal: CharacterBody2D = null
 @onready var game = $"../../"
+@onready var wheelTimer = $WheelTimer
+@onready var serious_appearance_timer = $"../../Timers/SeriousAppearanceTimer"
 
 enum WheelType { MOUSE, RABBIT, FROG }
 @export var wheel_type: WheelType
+
+const SPAWN_WAIT_TIMES = {
+	"mouse": [6.0, 8.0, 10.0, 12.0, 14.0, 16.0],
+	"rabbit": [7.0, 11.0, 15.0, 18.0],
+	"frog": [12.0, 18.0, 24.0],
+	}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	handleWheelType()
 	$Area2D.body_entered.connect(_on_body_entered)
 	$Area2D.body_exited.connect(_on_body_exited)
+	wheelTimer.timeout.connect(_on_wheel_timeout)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if !hoveredAnimal:
-		wheelOccupied = false
-	
 	if hoveredAnimal and !game.entityHeld and !wheelOccupied:
 		if !hoveredAnimal.placedOnWheel:
+			print("runs")
 			handleAnimalPlacement(hoveredAnimal)
+	
+	if wheelOccupied:
+		$AnimationPlayer.active = true
+	else:
+		$AnimationPlayer.active = false
+
+func _on_wheel_timeout() -> void:
+	if serious_appearance_timer.is_stopped():
+		return
+	if occupiedAnimal:
+		handleAnimalPlacement(occupiedAnimal)
 
 func _on_area_2d_mouse_entered() -> void:
 	is_mouse_hovering = true
@@ -55,9 +74,20 @@ func handleWheelType() -> void:
 			wheelType = "frog"
 			
 func handleAnimalPlacement(animal: CharacterBody2D) -> void:
-		if animal.animalType == wheelType:
-			animal.handleAnimalPlacementWheel(global_position)
-			wheelOccupied = true
-		else:
-			animal.handleAnimalGroundSpawn()
-			wheelOccupied = false
+	if wheelOccupied:
+		animal.handleAnimalGroundSpawn()
+		hoveredAnimal = null
+	if animal.animalType == wheelType and !wheelOccupied:
+		animal.handleAnimalPlacementWheel(global_position)
+		wheelOccupied = true
+		occupiedAnimal = animal
+		wheelTimer.wait_time = SPAWN_WAIT_TIMES[animal.animalType].pick_random()
+		wheelTimer.start()
+		hoveredAnimal = null
+	else:
+		if !wheelTimer.is_stopped():
+			wheelTimer.stop()
+		animal.handleAnimalGroundSpawn()
+		occupiedAnimal = null
+		wheelOccupied = false
+		hoveredAnimal = null

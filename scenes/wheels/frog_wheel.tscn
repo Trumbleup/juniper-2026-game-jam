@@ -71,5 +71,7 @@ position = Vector2(1.7881393e-07, 3.5762787e-07)
 scale = Vector2(0.12244895, 0.122448966)
 texture = ExtResource("3_on1rg")
 
+[node name="WheelTimer" type="Timer" parent="." unique_id=1492904178]
+
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

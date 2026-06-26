@@ -122,8 +122,6 @@ shape = SubResource("CircleShape2D_s0nli")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1292240921]
 shape = SubResource("CircleShape2D_8nox5")
 
-[node name="WheelTimer" type="Timer" parent="." unique_id=16075137]
-
 [node name="RayCastLeft" type="RayCast2D" parent="." unique_id=1012461479]
 rotation = 1.5707964
 target_position = Vector2(1.5517543e-06, 35.5)

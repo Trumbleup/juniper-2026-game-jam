@@ -19,7 +19,6 @@ var drag_offset = Vector2.ZERO
 
 @onready var game = $"../../"
 @onready var ground = $"../../Ground"
-@onready var serious_appearance_timer = $"../../Timers/SeriousAppearanceTimer"
 @onready var cursor = $"../Cursor"
 
 # Create a dropdown list for the Inspector
@@ -27,7 +26,8 @@ enum AnimalType { MOUSE, RABBIT, FROG }
 @export var animal_type: AnimalType
 
 @onready var grabZone = $GrabZone
-@onready var wheelTimer = $WheelTimer
+
+
 
 var delay = 2
 
@@ -54,8 +54,6 @@ func _ready() -> void:
 	handleAnimalType()
 	grabZone.mouse_entered.connect(_on_grabzone_mouse_entered)
 	grabZone.mouse_exited.connect(_on_grabzone_mouse_exited)
-	wheelTimer.timeout.connect(_on_wheel_timeout)
-	wheelTimer.wait_time = SPAWN_WAIT_TIMES[animalType].pick_random()
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and !placedOnWheel and hovering:
@@ -83,10 +81,7 @@ func _on_grabzone_mouse_entered() -> void:
 func _on_grabzone_mouse_exited() -> void:
 	hovering = false
 	
-func _on_wheel_timeout() -> void:
-	if serious_appearance_timer.is_stopped():
-		return
-	handleAnimalGroundSpawn()
+
 	
 func handleMovement(delta: float, speed) -> void:
 	if placedOnWheel:
@@ -110,8 +105,6 @@ func handleAnimalType() -> void:
 			animalType = "frog"
 			
 func handleAnimalGroundSpawn() -> void:
-	if !wheelTimer.is_stopped():
-		wheelTimer.stop()
 	match animalType:
 		"mouse":
 			var spawnPoint = mouse_spawns.pick_random()
@@ -135,10 +128,6 @@ func handleAnimalPlacementWheel(wheelPosition: Vector2) -> void:
 	global_position = wheelPosition + offsetDictionary[animalType]
 	sprite_2D.flip_h = false
 	direction = -1
-	wheelTimer.wait_time = SPAWN_WAIT_TIMES[animalType].pick_random()
-	wheelTimer.start()
-	
-
 		
 		
 	
