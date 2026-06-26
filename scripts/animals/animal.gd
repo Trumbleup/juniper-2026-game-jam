@@ -122,7 +122,7 @@ func handleAnimalPlacementWheel(wheelPosition: Vector2) -> void:
 	var offsetDictionary = {
 		"mouse": Vector2(0, 40),
 		"rabbit": Vector2(0, 60),
-		"frog": Vector2(0, 120)
+		"frog": Vector2(-15, 108)
 	}
 	placedOnWheel = true
 	global_position = wheelPosition + offsetDictionary[animalType]
