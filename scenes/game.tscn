@@ -60,7 +60,8 @@ shape = SubResource("RectangleShape2D_8nox5")
 [node name="Entities" type="Node2D" parent="." unique_id=15715286]
 
 [node name="Washer" parent="Entities" unique_id=1307096267 instance=ExtResource("3_lnu2h")]
-position = Vector2(827, 678)
+position = Vector2(823, 687)
+scale = Vector2(0.96, 0.96)
 
 [node name="Mouse" parent="Entities" unique_id=1260241564 groups=["Animals"] instance=ExtResource("5_iywne")]
 position = Vector2(1457, 344)
