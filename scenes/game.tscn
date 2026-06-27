@@ -19,7 +19,7 @@
 size = Vector2(24, 1103)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d4dr6"]
-size = Vector2(1916, 206)
+size = Vector2(1974, 206)
 
 [node name="Game" type="Node2D" unique_id=423232976]
 script = ExtResource("1_uwrxv")
@@ -31,7 +31,7 @@ texture = ExtResource("14_trtic")
 centered = false
 
 [node name="Camera2D" type="Camera2D" parent="BG" unique_id=784709716]
-position = Vector2(496.87878, 119.00039)
+position = Vector2(586.65106, 107.5179)
 scale = Vector2(1.2190963, 1.8286445)
 anchor_mode = 0
 
@@ -42,8 +42,10 @@ scale = Vector2(0.5111189, 0.5111189)
 texture = ExtResource("3_trtic")
 
 [node name="Borders" type="Node2D" parent="." unique_id=1911136774]
+position = Vector2(26, -4)
 
 [node name="LeftBorder" type="StaticBody2D" parent="Borders" unique_id=453332429]
+position = Vector2(47, -32)
 collision_layer = 2
 collision_mask = 16
 
@@ -52,7 +54,7 @@ position = Vector2(90, 516)
 shape = SubResource("RectangleShape2D_8nox5")
 
 [node name="RightBorder" type="StaticBody2D" parent="Borders" unique_id=1087718680]
-position = Vector2(1920, 6)
+position = Vector2(1968, 5)
 collision_layer = 2
 collision_mask = 16
 
@@ -69,28 +71,28 @@ process_mode = 3
 position = Vector2(827, 678)
 
 [node name="Mouse" parent="Entities" unique_id=1260241564 groups=["Animals"] instance=ExtResource("5_iywne")]
-position = Vector2(1175, 296)
+position = Vector2(1457, 344)
 
 [node name="Mouse2" parent="Entities" unique_id=670579943 groups=["Animals"] instance=ExtResource("5_iywne")]
-position = Vector2(1170, 460.00003)
+position = Vector2(1553, 670)
 
 [node name="Mouse3" parent="Entities" unique_id=1492491872 groups=["Animals"] instance=ExtResource("5_iywne")]
-position = Vector2(1173, 628)
+position = Vector2(1617, 254)
 
 [node name="Rabbit" parent="Entities" unique_id=1443523750 groups=["Animals"] instance=ExtResource("6_p57ef")]
-position = Vector2(1367, 184)
+position = Vector2(1237, 261)
 
 [node name="Rabbit2" parent="Entities" unique_id=762763437 groups=["Animals"] instance=ExtResource("6_p57ef")]
-position = Vector2(1411, 375)
+position = Vector2(1618, 474)
 
 [node name="Rabbit3" parent="Entities" unique_id=1541699157 groups=["Animals"] instance=ExtResource("6_p57ef")]
-position = Vector2(1427, 619)
+position = Vector2(1847, 620)
 
 [node name="Frog" parent="Entities" unique_id=619677910 groups=["Animals"] instance=ExtResource("7_u5sy4")]
-position = Vector2(1738, 220)
+position = Vector2(1308, 581)
 
 [node name="Frog2" parent="Entities" unique_id=1736212030 groups=["Animals"] instance=ExtResource("7_u5sy4")]
-position = Vector2(1739, 576)
+position = Vector2(1900, 302)
 
 [node name="Wheels" type="Node2D" parent="Entities" unique_id=1399487039]
 
@@ -186,12 +188,13 @@ text = "2:00 left"
 position = Vector2(296, 324)
 
 [node name="Ground" type="Area2D" parent="." unique_id=1476022857]
+position = Vector2(60, -12)
 collision_layer = 2
 collision_mask = 16
 script = ExtResource("13_kvuet")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=472935953]
-position = Vector2(1042, 976)
+position = Vector2(1071, 976)
 shape = SubResource("RectangleShape2D_d4dr6")
 
 [connection signal="spin_washer" from="." to="Entities/Washer" method="_on_game_spin_washer"]
