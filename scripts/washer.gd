@@ -7,6 +7,9 @@ var can_press: bool = true
 @onready var cursor = $"../../CursorLayer/Cursor"
 signal press(isActive: bool)
 
+var washer_button_on = "res://placeholder_assets/washer/washer_on.png"
+var washer_button_off = "res://placeholder_assets/washer/washer_off.png"
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -14,6 +17,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	handlePowered()
 	if game.entityHeld:
 		return
 	if can_press and is_mouse_hovering and !is_mouse_pressed:
@@ -55,3 +59,9 @@ func _on_game_spin_washer(is_active: bool) -> void:
 		$AnimationPlayer.current_animation = "washer_spin"
 	else:
 		$AnimationPlayer.current_animation = "RESET"
+		
+func handlePowered() -> void:
+	if game.totalPowerWeight >= 7:
+		$WasherBody/WasherButton.texture = load(washer_button_on)
+	else:
+		$WasherBody/WasherButton.texture = load(washer_button_off)
