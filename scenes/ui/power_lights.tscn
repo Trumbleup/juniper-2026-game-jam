@@ -1,78 +1,85 @@
 [gd_scene format=3 uid="uid://b4fcsx2i57y4"]
 
+[ext_resource type="Script" uid="uid://bkwiin5vm00og" path="res://scripts/power_lights.gd" id="1_p8md1"]
 [ext_resource type="Texture2D" uid="uid://463usvh61kfk" path="res://placeholder_assets/ui/red_off.png" id="1_pxj2d"]
 [ext_resource type="Texture2D" uid="uid://c832uunhu4gnf" path="res://placeholder_assets/ui/red_on.png" id="2_w067y"]
 [ext_resource type="Texture2D" uid="uid://b6bbc0vshayn2" path="res://placeholder_assets/ui/green_off.png" id="3_7vxou"]
 [ext_resource type="Texture2D" uid="uid://bci8lu2ngpsu3" path="res://placeholder_assets/ui/green_on.png" id="4_nu01n"]
 
 [node name="Power Lights" type="Node2D" unique_id=1414610089]
+script = ExtResource("1_p8md1")
 
-[node name="Red Dim" type="Sprite2D" parent="." unique_id=451260483]
+[node name="RedLights" type="Node2D" parent="." unique_id=1561727468]
+visible = false
+
+[node name="RedDimLights" type="Sprite2D" parent="RedLights" unique_id=451260483]
 texture = ExtResource("1_pxj2d")
 
-[node name="6" type="Sprite2D" parent="Red Dim" unique_id=1523108595]
+[node name="6" type="Sprite2D" parent="RedLights" unique_id=1523108595]
 position = Vector2(0, -16)
 texture = ExtResource("2_w067y")
 
-[node name="5" type="Sprite2D" parent="Red Dim" unique_id=1613695033]
+[node name="5" type="Sprite2D" parent="RedLights" unique_id=1613695033]
 position = Vector2(0, 15)
 texture = ExtResource("2_w067y")
 
-[node name="4" type="Sprite2D" parent="Red Dim" unique_id=446725443]
+[node name="4" type="Sprite2D" parent="RedLights" unique_id=446725443]
 position = Vector2(0, 46)
 texture = ExtResource("2_w067y")
 
-[node name="3" type="Sprite2D" parent="Red Dim" unique_id=211345984]
+[node name="3" type="Sprite2D" parent="RedLights" unique_id=211345984]
 position = Vector2(0, 77)
 texture = ExtResource("2_w067y")
 
-[node name="2" type="Sprite2D" parent="Red Dim" unique_id=1786538186]
+[node name="2" type="Sprite2D" parent="RedLights" unique_id=1786538186]
 position = Vector2(0, 108)
 texture = ExtResource("2_w067y")
 
-[node name="1" type="Sprite2D" parent="Red Dim" unique_id=593101828]
+[node name="1" type="Sprite2D" parent="RedLights" unique_id=593101828]
 position = Vector2(0, 139)
 texture = ExtResource("2_w067y")
 
-[node name="Green Dim" type="Sprite2D" parent="." unique_id=572098483]
+[node name="GreenLights" type="Node2D" parent="." unique_id=2113420740]
+
+[node name="GreenDimLights" type="Sprite2D" parent="GreenLights" unique_id=572098483]
 texture = ExtResource("3_7vxou")
 
-[node name="10" type="Sprite2D" parent="Green Dim" unique_id=1235713148]
+[node name="10" type="Sprite2D" parent="GreenLights" unique_id=1235713148]
 position = Vector2(0, -140)
 texture = ExtResource("4_nu01n")
 
-[node name="9" type="Sprite2D" parent="Green Dim" unique_id=890519244]
+[node name="9" type="Sprite2D" parent="GreenLights" unique_id=890519244]
 position = Vector2(0, -109)
 texture = ExtResource("4_nu01n")
 
-[node name="8" type="Sprite2D" parent="Green Dim" unique_id=1060839450]
+[node name="8" type="Sprite2D" parent="GreenLights" unique_id=1060839450]
 position = Vector2(0, -78)
 texture = ExtResource("4_nu01n")
 
-[node name="7" type="Sprite2D" parent="Green Dim" unique_id=1219672385]
+[node name="7" type="Sprite2D" parent="GreenLights" unique_id=1219672385]
 position = Vector2(0, -47)
 texture = ExtResource("4_nu01n")
 
-[node name="6" type="Sprite2D" parent="Green Dim" unique_id=266892744]
+[node name="6" type="Sprite2D" parent="GreenLights" unique_id=266892744]
 position = Vector2(0, -16)
 texture = ExtResource("4_nu01n")
 
-[node name="5" type="Sprite2D" parent="Green Dim" unique_id=537759195]
+[node name="5" type="Sprite2D" parent="GreenLights" unique_id=537759195]
 position = Vector2(0, 15)
 texture = ExtResource("4_nu01n")
 
-[node name="4" type="Sprite2D" parent="Green Dim" unique_id=858258996]
+[node name="4" type="Sprite2D" parent="GreenLights" unique_id=858258996]
 position = Vector2(0, 46)
 texture = ExtResource("4_nu01n")
 
-[node name="3" type="Sprite2D" parent="Green Dim" unique_id=118315938]
+[node name="3" type="Sprite2D" parent="GreenLights" unique_id=118315938]
 position = Vector2(0, 77)
 texture = ExtResource("4_nu01n")
 
-[node name="2" type="Sprite2D" parent="Green Dim" unique_id=59720092]
+[node name="2" type="Sprite2D" parent="GreenLights" unique_id=59720092]
 position = Vector2(0, 108)
 texture = ExtResource("4_nu01n")
 
-[node name="1" type="Sprite2D" parent="Green Dim" unique_id=1803385931]
+[node name="1" type="Sprite2D" parent="GreenLights" unique_id=1803385931]
 position = Vector2(0, 139)
 texture = ExtResource("4_nu01n")
