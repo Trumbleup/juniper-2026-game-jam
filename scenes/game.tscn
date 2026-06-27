@@ -19,7 +19,7 @@
 size = Vector2(24, 1103)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d4dr6"]
-size = Vector2(1892.5, 206)
+size = Vector2(1916, 206)
 
 [node name="Game" type="Node2D" unique_id=423232976]
 script = ExtResource("1_uwrxv")
@@ -47,7 +47,7 @@ collision_layer = 2
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/LeftBorder" unique_id=613362477]
-position = Vector2(2, 541.5)
+position = Vector2(90, 516)
 shape = SubResource("RectangleShape2D_8nox5")
 
 [node name="RightBorder" type="StaticBody2D" parent="Borders" unique_id=1087718680]
@@ -56,7 +56,7 @@ collision_layer = 2
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/RightBorder" unique_id=858154916]
-position = Vector2(2, 541.5)
+position = Vector2(93, 505)
 shape = SubResource("RectangleShape2D_8nox5")
 
 [node name="Entities" type="Node2D" parent="." unique_id=15715286]
@@ -188,7 +188,7 @@ collision_mask = 16
 script = ExtResource("13_kvuet")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=472935953]
-position = Vector2(961.75, 976)
+position = Vector2(1042, 976)
 shape = SubResource("RectangleShape2D_d4dr6")
 
 [connection signal="spin_washer" from="." to="Entities/Washer" method="_on_game_spin_washer"]
