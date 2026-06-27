@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bv28bubfik3rx" path="res://placeholder_assets/animal_sprites/rabbitsheet.png" id="2_gecnt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s0nli"]
-radius = 12.0
+radius = 22.005682
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kqc4y"]
 radius = 20.024984
