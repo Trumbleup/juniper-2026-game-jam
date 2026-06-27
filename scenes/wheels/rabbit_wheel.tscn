@@ -60,7 +60,6 @@ collision_layer = 8
 collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=749147065]
-visible = false
 position = Vector2(0, -0.5)
 shape = SubResource("CircleShape2D_2yok8")
 

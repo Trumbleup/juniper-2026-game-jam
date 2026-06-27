@@ -1,16 +1,21 @@
 [gd_scene format=3 uid="uid://f261vebkyjeu"]
 
 [ext_resource type="Script" uid="uid://2td5ye4qvwdl" path="res://scripts/ui/reset_button.gd" id="1_li5mg"]
+[ext_resource type="Texture2D" uid="uid://j5xdgye3w615" path="res://placeholder_assets/ui/restart.png" id="1_m45l0"]
 
 [node name="ResetButton" type="Button" unique_id=2067306892]
+modulate = Color(0.11764706, 0.28235295, 0.44313726, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1605.0
-offset_bottom = -1011.0
+offset_left = 2.0
+offset_top = 3.0
+offset_right = -1461.0
+offset_bottom = -792.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Reset"
+icon = ExtResource("1_m45l0")
 script = ExtResource("1_li5mg")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Juniper Game Jam 2026"
-run/main_scene="uid://bi1n7hx48vobu"
+run/main_scene="uid://dap7ge1a2241c"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
