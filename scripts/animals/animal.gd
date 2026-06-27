@@ -31,9 +31,9 @@ enum AnimalType { MOUSE, RABBIT, FROG }
 
 var delay = 2
 
-var mouse_spawns = [{"x": 1275, "y": 952}, {"x": 1283, "y": 1027}]
+var mouse_spawns = [{"x": 1250, "y": 910}, {"x": 1383, "y": 960}]
 var rabbit_spawns = [{"x": 1467, "y": 885 }, {"x": 1495, "y": 973}]
-var frog_spawns = [{"x": 1721, "y": 1019 }, {"x": 1704, "y": 929}]
+var frog_spawns = [{"x": 1721, "y": 860 }, {"x": 1704, "y": 929}]
 
 const SPAWN_WAIT_TIMES = {
 	"mouse": [6.0, 8.0, 10.0, 12.0, 14.0, 16.0],
