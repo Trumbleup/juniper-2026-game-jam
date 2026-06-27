@@ -159,14 +159,6 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 87
 text = "0 points"
 
-[node name="PowerLabel" type="Label" parent="CanvasLayer" unique_id=1131941558]
-offset_left = 700.0
-offset_top = 377.0
-offset_right = 892.0
-offset_bottom = 484.0
-theme_override_font_sizes/font_size = 60
-text = "10/10"
-
 [node name="SeriousTimeLabel" type="Label" parent="CanvasLayer" unique_id=38844314]
 offset_left = 200.0
 offset_top = -30.0
@@ -276,6 +268,7 @@ texture = ExtResource("18_1kice")
 offset = Vector2(2077.711, -5.5005493)
 
 [connection signal="spin_washer" from="." to="Entities/Washer" method="_on_game_spin_washer"]
+[connection signal="total_power_weight_change" from="." to="Power Lights" method="_on_game_total_power_weight_change"]
 [connection signal="press" from="Entities/Washer" to="." method="_on_washer_press"]
 [connection signal="timeout" from="Timers/ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="Timers/SeriousAppearanceTimer" to="." method="_on_serious_appearance_timer_timeout"]

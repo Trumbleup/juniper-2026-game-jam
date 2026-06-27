@@ -17,6 +17,7 @@ var animals
 @onready var cursor = $CursorLayer/Cursor
 
 signal spin_washer(is_active: bool)
+signal total_power_weight_change(score: int)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -28,6 +29,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	handlePowerWeight()
+	handleTotalPowerWeightChange()
 	handleSeriousAppearance()
 	handleLose()
 	handleWin()
@@ -81,14 +83,16 @@ func handleGameTime() -> void:
 	var time_string = "%02d:%02d" % [minutes, seconds]
 	
 	$CanvasLayer/GameTimeLabel.text = time_string + ' left'
-	
+
+func handleTotalPowerWeightChange() -> void:
+	total_power_weight_change.emit(totalPowerWeight)
+
 func handlePowerWeight() -> void:
 	var powerWeight: int = 0
 	for animal in animals:
 		if animal.placedOnWheel:
 			powerWeight += animal.score_weight
 	totalPowerWeight = powerWeight
-	$CanvasLayer/PowerLabel.text = str(totalPowerWeight) + "/10"
 	
 func handleSeriousAppearance() -> void:
 	if serious_leave_timer.is_stopped():

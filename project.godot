@@ -25,6 +25,8 @@ window/stretch/aspect="expand"
 [global_group]
 
 Animals=""
+green_lights=""
+red_lights=""
 
 [input]
 
