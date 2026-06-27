@@ -13,14 +13,20 @@ func _process(delta: float) -> void:
 	if viewState == 0:
 		$Text1.visible = true
 		$Text2.visible = false
-		$Button.text = "Next"
 	else:
 		$Text1.visible = false
 		$Text2.visible = true
-		$Button.text = "Begin!"
-	
-func _on_button_pressed() -> void:
+
+
+func _on_next_button_pressed() -> void:
 	if viewState == 0:
 		viewState = 1
 	else:
 		get_tree().change_scene_to_file("res://scenes/game.tscn")
+
+
+func _on_previous_button_pressed() -> void:
+	if viewState == 1:
+		viewState = 0
+	else:
+		get_tree().change_scene_to_file("res://scenes/ui/title.tscn")
