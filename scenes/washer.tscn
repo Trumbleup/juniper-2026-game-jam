@@ -4,13 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://1dfckknkpd1r" path="res://placeholder_assets/washer/washer_outside.png" id="2_3fnrt"]
 [ext_resource type="Texture2D" uid="uid://dk5gaok0okpy8" path="res://placeholder_assets/washer/washer_drum.png" id="3_h0xcu"]
 [ext_resource type="Texture2D" uid="uid://dx0v60jyxwyfh" path="res://placeholder_assets/washer/washer_clothes.png" id="4_ebqhm"]
+[ext_resource type="Texture2D" uid="uid://cyhmcogvbk014" path="res://placeholder_assets/washer/washer_on.png" id="5_ebqhm"]
 
 [sub_resource type="Animation" id="Animation_ebqhm"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D/Sprite2D:rotation")
+tracks/0/path = NodePath("WasherBody/WasherBlade:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -28,7 +29,7 @@ step = 0.083333336
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D/Sprite2D:rotation")
+tracks/0/path = NodePath("WasherBody/WasherBlade:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -55,21 +56,27 @@ visible = false
 position = Vector2(-108, -188)
 polygon = PackedVector2Array(218, 0, 233, 20, 246, 46, 251, 52, 252, 367, 245, 373, -26, 372, -35, 361, -37, 52, -30, 42, -1, 5)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1976063047]
+[node name="WasherBody" type="Sprite2D" parent="." unique_id=1976063047]
 z_index = 1
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_3fnrt")
 
-[node name="Sprite2D" type="Sprite2D" parent="Sprite2D" unique_id=646167021]
+[node name="WasherBlade" type="Sprite2D" parent="WasherBody" unique_id=646167021]
 z_index = -1
 position = Vector2(-4, 32)
 texture = ExtResource("3_h0xcu")
 offset = Vector2(4, -32)
 
-[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D/Sprite2D" unique_id=1359934491]
+[node name="WasherClothes" type="Sprite2D" parent="WasherBody/WasherBlade" unique_id=1359934491]
 position = Vector2(-2, 2)
 texture = ExtResource("4_ebqhm")
 offset = Vector2(6, -34)
+
+[node name="WasherButton" type="Sprite2D" parent="WasherBody" unique_id=207530654]
+z_index = 1
+position = Vector2(216, -252)
+scale = Vector2(0.91304344, 0.9130435)
+texture = ExtResource("5_ebqhm")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1934523955]
 libraries/ = SubResource("AnimationLibrary_ebqhm")

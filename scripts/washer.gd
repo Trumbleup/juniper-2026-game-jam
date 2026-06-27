@@ -48,3 +48,10 @@ func _on_area_2d_mouse_exited() -> void:
 
 func _on_animal_is_held(isDragging: bool) -> void:
 	can_press = !isDragging
+
+
+func _on_game_spin_washer(is_active: bool) -> void:
+	if is_active:
+		$AnimationPlayer.current_animation = "washer_spin"
+	else:
+		$AnimationPlayer.current_animation = "RESET"

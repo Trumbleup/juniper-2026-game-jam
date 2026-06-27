@@ -16,6 +16,8 @@ var animals
 @onready var reset_button = $CanvasLayer/ResetButton
 @onready var cursor = $Entities/Cursor
 
+signal spin_washer(is_active: bool)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_tree().paused = false
@@ -29,6 +31,11 @@ func _process(_delta: float) -> void:
 	handleSeriousAppearance()
 	handleLose()
 	handleGameTime()
+	
+	if washerActive:
+		spin_washer.emit(true)
+	else:
+		spin_washer.emit(false)
 
 func _on_game_timer_timeout() -> void:
 	game_time_in_seconds -= 1
@@ -42,6 +49,7 @@ func _on_score_timer_timeout() -> void:
 func _on_washer_press(isActive: bool) -> void:
 	if isActive:
 		cursor.updateHandSprite("washer_pushed")
+		
 	washerActive = isActive
 	
 func _on_serious_appearance_timer_timeout() -> void:

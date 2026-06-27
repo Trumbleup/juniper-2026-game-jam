@@ -191,6 +191,7 @@ script = ExtResource("13_kvuet")
 position = Vector2(961.75, 976)
 shape = SubResource("RectangleShape2D_d4dr6")
 
+[connection signal="spin_washer" from="." to="Entities/Washer" method="_on_game_spin_washer"]
 [connection signal="press" from="Entities/Washer" to="." method="_on_washer_press"]
 [connection signal="timeout" from="Timers/ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="Timers/SeriousAppearanceTimer" to="." method="_on_serious_appearance_timer_timeout"]
