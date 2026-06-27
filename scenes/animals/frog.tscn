@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bvbwsu060ghuf" path="res://placeholder_assets/animal_sprites/frogsheet.png" id="2_t246m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s0nli"]
-radius = 12.0
+radius = 20.336065
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8nox5"]
 radius = 31.0
@@ -146,4 +146,5 @@ scale = Vector2(0.368, 0.368)
 texture = ExtResource("2_t246m")
 offset = Vector2(-21.73913, -107.33695)
 hframes = 4
+frame = 2
 region_rect = Rect2(403.13336, 170.05334, 203.1333, 125.033356)
