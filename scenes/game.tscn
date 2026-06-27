@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://3bnsok3vhiqc" path="res://scripts/game.gd" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://cj7icw15ggbe" path="res://scenes/cursor.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://2biomjgu07db" path="res://scenes/washer.tscn" id="3_lnu2h"]
-[ext_resource type="Texture2D" uid="uid://bspixtsm3iv6" path="res://placeholder_assets/wheels/wheel_placement.png" id="3_trtic"]
 [ext_resource type="PackedScene" uid="uid://dh5oaeniqnt7w" path="res://scenes/wheels/mouse_wheel.tscn" id="5_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://cjuqpnei3umne" path="res://scenes/animals/mouse.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://5fk0851ispqx" path="res://scenes/animals/rabbit.tscn" id="6_p57ef"]
@@ -34,12 +33,6 @@ centered = false
 position = Vector2(586.65106, 107.5179)
 scale = Vector2(1.2190963, 1.8286445)
 anchor_mode = 0
-
-[node name="WheelPlacement" type="Sprite2D" parent="BG" unique_id=101713238]
-visible = false
-position = Vector2(2071.0244, 614.8354)
-scale = Vector2(0.5111189, 0.5111189)
-texture = ExtResource("3_trtic")
 
 [node name="Borders" type="Node2D" parent="." unique_id=1911136774]
 position = Vector2(26, -4)
@@ -139,14 +132,16 @@ autostart = true
 autostart = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1000400579]
+follow_viewport_enabled = true
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer" unique_id=537881637]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_top = 8.0
-offset_right = 336.0
-offset_bottom = 127.0
+offset_left = -32.0
+offset_top = -40.0
+offset_right = 304.0
+offset_bottom = 79.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 87
 text = "0 points"
@@ -160,10 +155,10 @@ theme_override_font_sizes/font_size = 60
 text = "10/10"
 
 [node name="SeriousTimeLabel" type="Label" parent="CanvasLayer" unique_id=38844314]
-offset_left = 228.0
-offset_top = 17.0
-offset_right = 725.0
-offset_bottom = 158.0
+offset_left = 200.0
+offset_top = -30.0
+offset_right = 697.0
+offset_bottom = 111.0
 theme_override_font_sizes/font_size = 50
 text = "Mr. Serious Appears 
 in 30 Seconds"
@@ -177,10 +172,10 @@ offset_right = -874.0
 offset_bottom = -598.0
 
 [node name="GameTimeLabel" type="Label" parent="CanvasLayer" unique_id=142519251]
-offset_left = 1678.0
-offset_top = 48.0
-offset_right = 1833.0
-offset_bottom = 103.0
+offset_left = 1866.0
+offset_top = 17.0
+offset_right = 2021.0
+offset_bottom = 72.0
 theme_override_font_sizes/font_size = 40
 text = "2:00 left"
 
