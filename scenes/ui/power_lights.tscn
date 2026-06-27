@@ -15,27 +15,27 @@ visible = false
 [node name="RedDimLights" type="Sprite2D" parent="RedLights" unique_id=451260483]
 texture = ExtResource("1_pxj2d")
 
-[node name="6" type="Sprite2D" parent="RedLights" unique_id=1523108595]
+[node name="6" type="Sprite2D" parent="RedLights" unique_id=1523108595 groups=["red_lights"]]
 position = Vector2(0, -16)
 texture = ExtResource("2_w067y")
 
-[node name="5" type="Sprite2D" parent="RedLights" unique_id=1613695033]
+[node name="5" type="Sprite2D" parent="RedLights" unique_id=1613695033 groups=["red_lights"]]
 position = Vector2(0, 15)
 texture = ExtResource("2_w067y")
 
-[node name="4" type="Sprite2D" parent="RedLights" unique_id=446725443]
+[node name="4" type="Sprite2D" parent="RedLights" unique_id=446725443 groups=["red_lights"]]
 position = Vector2(0, 46)
 texture = ExtResource("2_w067y")
 
-[node name="3" type="Sprite2D" parent="RedLights" unique_id=211345984]
+[node name="3" type="Sprite2D" parent="RedLights" unique_id=211345984 groups=["red_lights"]]
 position = Vector2(0, 77)
 texture = ExtResource("2_w067y")
 
-[node name="2" type="Sprite2D" parent="RedLights" unique_id=1786538186]
+[node name="2" type="Sprite2D" parent="RedLights" unique_id=1786538186 groups=["red_lights"]]
 position = Vector2(0, 108)
 texture = ExtResource("2_w067y")
 
-[node name="1" type="Sprite2D" parent="RedLights" unique_id=593101828]
+[node name="1" type="Sprite2D" parent="RedLights" unique_id=593101828 groups=["red_lights"]]
 position = Vector2(0, 139)
 texture = ExtResource("2_w067y")
 
@@ -44,42 +44,42 @@ texture = ExtResource("2_w067y")
 [node name="GreenDimLights" type="Sprite2D" parent="GreenLights" unique_id=572098483]
 texture = ExtResource("3_7vxou")
 
-[node name="10" type="Sprite2D" parent="GreenLights" unique_id=1235713148]
+[node name="10" type="Sprite2D" parent="GreenLights" unique_id=1235713148 groups=["green_lights"]]
 position = Vector2(0, -140)
 texture = ExtResource("4_nu01n")
 
-[node name="9" type="Sprite2D" parent="GreenLights" unique_id=890519244]
+[node name="9" type="Sprite2D" parent="GreenLights" unique_id=890519244 groups=["green_lights"]]
 position = Vector2(0, -109)
 texture = ExtResource("4_nu01n")
 
-[node name="8" type="Sprite2D" parent="GreenLights" unique_id=1060839450]
+[node name="8" type="Sprite2D" parent="GreenLights" unique_id=1060839450 groups=["green_lights"]]
 position = Vector2(0, -78)
 texture = ExtResource("4_nu01n")
 
-[node name="7" type="Sprite2D" parent="GreenLights" unique_id=1219672385]
+[node name="7" type="Sprite2D" parent="GreenLights" unique_id=1219672385 groups=["green_lights"]]
 position = Vector2(0, -47)
 texture = ExtResource("4_nu01n")
 
-[node name="6" type="Sprite2D" parent="GreenLights" unique_id=266892744]
+[node name="6" type="Sprite2D" parent="GreenLights" unique_id=266892744 groups=["green_lights"]]
 position = Vector2(0, -16)
 texture = ExtResource("4_nu01n")
 
-[node name="5" type="Sprite2D" parent="GreenLights" unique_id=537759195]
+[node name="5" type="Sprite2D" parent="GreenLights" unique_id=537759195 groups=["green_lights"]]
 position = Vector2(0, 15)
 texture = ExtResource("4_nu01n")
 
-[node name="4" type="Sprite2D" parent="GreenLights" unique_id=858258996]
+[node name="4" type="Sprite2D" parent="GreenLights" unique_id=858258996 groups=["green_lights"]]
 position = Vector2(0, 46)
 texture = ExtResource("4_nu01n")
 
-[node name="3" type="Sprite2D" parent="GreenLights" unique_id=118315938]
+[node name="3" type="Sprite2D" parent="GreenLights" unique_id=118315938 groups=["green_lights"]]
 position = Vector2(0, 77)
 texture = ExtResource("4_nu01n")
 
-[node name="2" type="Sprite2D" parent="GreenLights" unique_id=59720092]
+[node name="2" type="Sprite2D" parent="GreenLights" unique_id=59720092 groups=["green_lights"]]
 position = Vector2(0, 108)
 texture = ExtResource("4_nu01n")
 
-[node name="1" type="Sprite2D" parent="GreenLights" unique_id=1803385931]
+[node name="1" type="Sprite2D" parent="GreenLights" unique_id=1803385931 groups=["green_lights"]]
 position = Vector2(0, 139)
 texture = ExtResource("4_nu01n")
