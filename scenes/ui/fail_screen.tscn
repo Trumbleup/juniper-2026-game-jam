@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://btwvass3obgs7"]
+
+[ext_resource type="Script" uid="uid://cxom8bm3c0dr5" path="res://scripts/ui/fail_screen.gd" id="1_6cua1"]
+[ext_resource type="Texture2D" uid="uid://dwd6v2yrey78x" path="res://placeholder_assets/ui/fail_bg.png" id="1_ilrys"]
+[ext_resource type="Texture2D" uid="uid://ch88xigfl037j" path="res://placeholder_assets/ui/fail_text.png" id="2_6cua1"]
+[ext_resource type="Texture2D" uid="uid://bghgixpoqsrra" path="res://placeholder_assets/ui/retry_white.png" id="4_y71bs"]
+[ext_resource type="Texture2D" uid="uid://c0huncb5giydx" path="res://placeholder_assets/ui/back_to_title.png" id="5_38xok"]
+
+[node name="FailScreen" type="Control" unique_id=892726411]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6cua1")
+
+[node name="FailBg" type="Sprite2D" parent="." unique_id=1363887596]
+position = Vector2(964, 538)
+texture = ExtResource("1_ilrys")
+
+[node name="FailText" type="Sprite2D" parent="." unique_id=314584502]
+position = Vector2(1275, 284)
+texture = ExtResource("2_6cua1")
+
+[node name="RetryButton" type="Button" parent="." unique_id=1167557228]
+layout_mode = 0
+offset_left = 1419.0
+offset_top = 741.0
+offset_right = 1829.0
+offset_bottom = 1026.0
+icon = ExtResource("4_y71bs")
+flat = true
+
+[node name="BackToMainButton" type="Button" parent="." unique_id=1198656713]
+layout_mode = 0
+offset_left = 843.0
+offset_top = 798.0
+offset_right = 1297.0
+offset_bottom = 991.0
+text = "
+"
+icon = ExtResource("5_38xok")
+flat = true
+
+[connection signal="pressed" from="RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="BackToMainButton" to="." method="_on_back_to_main_button_pressed"]

@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bqhdx2wcyvft3"]
+
+[ext_resource type="Script" uid="uid://bmhf5uh5x8lvd" path="res://scripts/ui/win_screen.gd" id="1_uqtu8"]
+[ext_resource type="Texture2D" uid="uid://p36mv5ltmj8e" path="res://scenes/ui/winkawaii.png" id="2_xl2x5"]
+[ext_resource type="Texture2D" uid="uid://bn365jdhmmwfs" path="res://placeholder_assets/ui/play_again.png" id="3_rc6je"]
+[ext_resource type="Texture2D" uid="uid://c0huncb5giydx" path="res://placeholder_assets/ui/back_to_title.png" id="4_rc6je"]
+
+[node name="WinScreen" type="Control" unique_id=50801679]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uqtu8")
+
+[node name="Winkawaii" type="Sprite2D" parent="." unique_id=1209063964]
+position = Vector2(961, 541)
+texture = ExtResource("2_xl2x5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=243757115]
+
+[node name="RetryButton" type="Button" parent="CanvasLayer" unique_id=1323505253]
+offset_left = 1462.0
+offset_top = 774.0
+offset_right = 1872.0
+offset_bottom = 1059.0
+icon = ExtResource("3_rc6je")
+flat = true
+
+[node name="MainMenuButton" type="Button" parent="CanvasLayer" unique_id=1945401731]
+offset_left = 994.0
+offset_top = 810.0
+offset_right = 1444.0
+offset_bottom = 1003.0
+icon = ExtResource("4_rc6je")
+flat = true
+
+[connection signal="pressed" from="CanvasLayer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

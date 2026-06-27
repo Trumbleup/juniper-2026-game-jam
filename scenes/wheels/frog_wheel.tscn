@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://57yhcynxfr3i"]
+
+[ext_resource type="Script" uid="uid://bcks1xn6o7qjb" path="res://scripts/wheel.gd" id="1_hm3xx"]
+[ext_resource type="Texture2D" uid="uid://bjam3wtoodo7q" path="res://placeholder_assets/wheels/wheel_back_large.png" id="2_dxq50"]
+[ext_resource type="Texture2D" uid="uid://cbi8cdfkatywm" path="res://placeholder_assets/wheels/wheel_bolt.png" id="3_on1rg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kvuet"]
+radius = 56.025787
+
+[sub_resource type="Animation" id="Animation_tbnke"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_q8rew"]
+resource_name = "wheel_spin"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -6.283185307179586]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5kvyx"]
+_data = {
+&"RESET": SubResource("Animation_tbnke"),
+&"wheel_spin": SubResource("Animation_q8rew")
+}
+
+[node name="FrogWheel" type="Node2D" unique_id=181955310]
+scale = Vector2(3, 3)
+script = ExtResource("1_hm3xx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=177640154]
+modulate = Color(1, 1, 1, 0.92941177)
+position = Vector2(-9.536743e-07, 9.536743e-07)
+scale = Vector2(0.18614717, 0.18614717)
+texture = ExtResource("2_dxq50")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=73464692]
+collision_layer = 8
+collision_mask = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=749147065]
+shape = SubResource("CircleShape2D_kvuet")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=152223804]
+libraries/ = SubResource("AnimationLibrary_5kvyx")
+autoplay = &"wheel_spin"
+
+[node name="WheelBolt" type="Sprite2D" parent="." unique_id=104576861]
+position = Vector2(1.7881393e-07, 3.5762787e-07)
+scale = Vector2(0.12244895, 0.122448966)
+texture = ExtResource("3_on1rg")
+
+[node name="WheelTimer" type="Timer" parent="." unique_id=1492904178]
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

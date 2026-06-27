@@ -3,42 +3,314 @@
 [ext_resource type="Script" uid="uid://3bnsok3vhiqc" path="res://scripts/game.gd" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://cj7icw15ggbe" path="res://scenes/cursor.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://2biomjgu07db" path="res://scenes/washer.tscn" id="3_lnu2h"]
-[ext_resource type="PackedScene" uid="uid://c8imauhtpbccn" path="res://scenes/wheel.tscn" id="4_lbhrr"]
+[ext_resource type="Texture2D" uid="uid://di604j8fh0uh4" path="res://placeholder_assets/washer/coin_slots.png" id="4_ir15t"]
+[ext_resource type="PackedScene" uid="uid://dh5oaeniqnt7w" path="res://scenes/wheels/mouse_wheel.tscn" id="5_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://cjuqpnei3umne" path="res://scenes/animals/mouse.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://5fk0851ispqx" path="res://scenes/animals/rabbit.tscn" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://c12e6pb0u8rp0" path="res://scenes/animals/frog.tscn" id="7_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://dfhtb4bgbjg6u" path="res://scenes/wheels/rabbit_wheel.tscn" id="8_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://57yhcynxfr3i" path="res://scenes/wheels/frog_wheel.tscn" id="9_vtaks"]
+[ext_resource type="FontFile" uid="uid://d24giu3iai10" path="res://scenes/ui/CALISTOGA-REGULAR.TTF" id="11_1kice"]
+[ext_resource type="PackedScene" uid="uid://f261vebkyjeu" path="res://scenes/ui/reset_button.tscn" id="11_dinhu"]
+[ext_resource type="PackedScene" uid="uid://dme8buevb1b4x" path="res://scenes/mr__serious.tscn" id="11_kvpfn"]
+[ext_resource type="Texture2D" uid="uid://5c3crw6ed7o" path="res://placeholder_assets/sign.png" id="12_264po"]
+[ext_resource type="Script" uid="uid://dgiiui51y47ld" path="res://scripts/ground.gd" id="13_kvuet"]
+[ext_resource type="PackedScene" uid="uid://b4fcsx2i57y4" path="res://scenes/ui/power_lights.tscn" id="14_ir15t"]
+[ext_resource type="Texture2D" uid="uid://iwcuhre8s3yr" path="res://placeholder_assets/laundromat2.png" id="14_trtic"]
+[ext_resource type="Texture2D" uid="uid://mjoyvs83pj6i" path="res://placeholder_assets/wheels/wheel_front_large.png" id="16_ssvqc"]
+[ext_resource type="Texture2D" uid="uid://cbwlusg1gv5vy" path="res://placeholder_assets/wheels/wheel_front_med.png" id="17_264po"]
+[ext_resource type="Texture2D" uid="uid://ef6j31wfrihl" path="res://placeholder_assets/wheels/wheel_front_small.png" id="18_1kice"]
 
-[sub_resource type="DrawableTexture2D" id="DrawableTexture2D_8nox5"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8nox5"]
+size = Vector2(24, 1103)
+
+[sub_resource type="Theme" id="Theme_kwlel"]
+default_font = ExtResource("11_1kice")
+
+[sub_resource type="Theme" id="Theme_1bple"]
+default_font = ExtResource("11_1kice")
+
+[sub_resource type="Theme" id="Theme_rcglm"]
+default_font = ExtResource("11_1kice")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4dr6"]
+size = Vector2(1974, 206)
 
 [node name="Game" type="Node2D" unique_id=423232976]
 script = ExtResource("1_uwrxv")
+metadata/_edit_horizontal_guides_ = [1033.0]
+metadata/_edit_vertical_guides_ = [1257.0]
 
 [node name="BG" type="Sprite2D" parent="." unique_id=855200895]
-modulate = Color(0, 0.23908472, 0.24258366, 1)
-scale = Vector2(17.96875, 10.125)
-texture = SubResource("DrawableTexture2D_8nox5")
+z_index = -7
+position = Vector2(-384, -146)
+scale = Vector2(0.95798004, 0.95798004)
+texture = ExtResource("14_trtic")
 centered = false
 
 [node name="Camera2D" type="Camera2D" parent="BG" unique_id=784709716]
-scale = Vector2(1.4222223, 2.1333334)
+position = Vector2(586.65106, 107.5179)
+scale = Vector2(1.2190963, 1.8286445)
 anchor_mode = 0
 
-[node name="ColorRect" type="ColorRect" parent="BG" unique_id=248629581]
-offset_top = 52.04938
-offset_right = 64.0
-offset_bottom = 63.901234
-color = Color(0.500095, 0.50009507, 0.500095, 1)
+[node name="Borders" type="Node2D" parent="." unique_id=1911136774]
+position = Vector2(26, -4)
 
-[node name="ColorRect2" type="ColorRect" parent="BG" unique_id=842571817]
-offset_left = 0.2226087
-offset_top = 0.39506173
-offset_right = 64.2226
-offset_bottom = 12.246914
-color = Color(0.500095, 0.50009507, 0.500095, 1)
+[node name="LeftBorder" type="StaticBody2D" parent="Borders" unique_id=453332429]
+position = Vector2(47, -32)
+collision_layer = 2
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/LeftBorder" unique_id=613362477]
+position = Vector2(90, 516)
+shape = SubResource("RectangleShape2D_8nox5")
+
+[node name="RightBorder" type="StaticBody2D" parent="Borders" unique_id=1087718680]
+position = Vector2(1968, 5)
+collision_layer = 2
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/RightBorder" unique_id=858154916]
+position = Vector2(93, 505)
+shape = SubResource("RectangleShape2D_8nox5")
 
 [node name="Entities" type="Node2D" parent="." unique_id=15715286]
 
-[node name="Cursor" parent="Entities" unique_id=1765368202 instance=ExtResource("2_yqjtg")]
-
 [node name="Washer" parent="Entities" unique_id=1307096267 instance=ExtResource("3_lnu2h")]
-position = Vector2(545, 256)
+z_index = -1
+position = Vector2(823, 687)
+scale = Vector2(0.96, 0.96)
 
-[node name="Wheel" parent="Entities" unique_id=181955310 instance=ExtResource("4_lbhrr")]
-position = Vector2(815, 164)
+[node name="CoinSlots" type="Sprite2D" parent="Entities" unique_id=825457956]
+position = Vector2(136, 568)
+scale = Vector2(0.48007363, 0.48007363)
+texture = ExtResource("4_ir15t")
+offset = Vector2(594.643, 1.7857666)
+
+[node name="Mouse" parent="Entities" unique_id=1260241564 groups=["Animals"] instance=ExtResource("5_iywne")]
+position = Vector2(1457, 344)
+
+[node name="Mouse2" parent="Entities" unique_id=670579943 groups=["Animals"] instance=ExtResource("5_iywne")]
+position = Vector2(1553, 670)
+
+[node name="Mouse3" parent="Entities" unique_id=1492491872 groups=["Animals"] instance=ExtResource("5_iywne")]
+position = Vector2(1617, 254)
+
+[node name="Rabbit" parent="Entities" unique_id=1443523750 groups=["Animals"] instance=ExtResource("6_p57ef")]
+position = Vector2(1237, 261)
+
+[node name="Rabbit2" parent="Entities" unique_id=762763437 groups=["Animals"] instance=ExtResource("6_p57ef")]
+position = Vector2(1618, 474)
+
+[node name="Rabbit3" parent="Entities" unique_id=1541699157 groups=["Animals"] instance=ExtResource("6_p57ef")]
+position = Vector2(1847, 620)
+
+[node name="Frog" parent="Entities" unique_id=619677910 groups=["Animals"] instance=ExtResource("7_u5sy4")]
+position = Vector2(1308, 581)
+
+[node name="Frog2" parent="Entities" unique_id=1736212030 groups=["Animals"] instance=ExtResource("7_u5sy4")]
+position = Vector2(1900, 302)
+
+[node name="Wheels" type="Node2D" parent="Entities" unique_id=1399487039]
+
+[node name="MouseWheel1" parent="Entities/Wheels" unique_id=181955310 instance=ExtResource("5_0tnpc")]
+position = Vector2(1457, 343)
+
+[node name="MouseWheel2" parent="Entities/Wheels" unique_id=1612965596 instance=ExtResource("5_0tnpc")]
+position = Vector2(1557, 674)
+
+[node name="MouseWheel3" parent="Entities/Wheels" unique_id=1119356042 instance=ExtResource("5_0tnpc")]
+position = Vector2(1619, 263)
+
+[node name="RabbitWheel" parent="Entities/Wheels" unique_id=1573098094 instance=ExtResource("8_0tnpc")]
+position = Vector2(1249, 268)
+wheel_type = 1
+
+[node name="RabbitWheel2" parent="Entities/Wheels" unique_id=690929927 instance=ExtResource("8_0tnpc")]
+position = Vector2(1624, 479)
+wheel_type = 1
+
+[node name="RabbitWheel3" parent="Entities/Wheels" unique_id=23350019 instance=ExtResource("8_0tnpc")]
+position = Vector2(1849, 626)
+wheel_type = 1
+
+[node name="FrogWheel" parent="Entities/Wheels" unique_id=1899036704 instance=ExtResource("9_vtaks")]
+position = Vector2(1304.0001, 569)
+wheel_type = 2
+
+[node name="FrogWheel2" parent="Entities/Wheels" unique_id=266569211 instance=ExtResource("9_vtaks")]
+position = Vector2(1899, 309)
+wheel_type = 2
+
+[node name="Timers" type="Node" parent="." unique_id=51954178]
+
+[node name="ScoreTimer" type="Timer" parent="Timers" unique_id=1138993644]
+autostart = true
+
+[node name="SeriousAppearanceTimer" type="Timer" parent="Timers" unique_id=2112760239]
+autostart = true
+
+[node name="SeriousLeaveTimer" type="Timer" parent="Timers" unique_id=1994873190]
+
+[node name="GameTimer" type="Timer" parent="Timers" unique_id=1877282034]
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1000400579]
+follow_viewport_enabled = true
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer" unique_id=537881637]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = -40.0
+offset_right = 304.0
+offset_bottom = 79.0
+grow_horizontal = 2
+theme = SubResource("Theme_kwlel")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 9
+theme_override_fonts/font = ExtResource("11_1kice")
+theme_override_font_sizes/font_size = 87
+text = "0 points"
+
+[node name="SeriousTimeLabel" type="Label" parent="CanvasLayer" unique_id=38844314]
+offset_left = 200.0
+offset_top = -30.0
+offset_right = 697.0
+offset_bottom = 111.0
+theme = SubResource("Theme_1bple")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 7
+theme_override_font_sizes/font_size = 50
+text = "Mr. Serious Appears 
+in 30 Seconds"
+
+[node name="ResetButton" parent="CanvasLayer" unique_id=2067306892 instance=ExtResource("11_dinhu")]
+process_mode = 2
+visible = false
+self_modulate = Color(1, 1, 0.8627451, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.5
+offset_top = -93.0
+offset_right = 292.0
+offset_bottom = 15.5
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/outline_size = 5
+
+[node name="GameTimeLabel" type="Label" parent="CanvasLayer" unique_id=142519251]
+offset_left = 1820.0
+offset_top = 29.0
+offset_right = 2029.0
+offset_bottom = 98.0
+theme = SubResource("Theme_rcglm")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 3
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 53
+text = "2:00 left"
+
+[node name="Sign" type="Sprite2D" parent="CanvasLayer" unique_id=1827841707]
+position = Vector2(784.00006, 317)
+scale = Vector2(0.42787623, 0.42787623)
+texture = ExtResource("12_264po")
+
+[node name="Mr_ Serious" parent="." unique_id=2137749233 instance=ExtResource("11_kvpfn")]
+position = Vector2(427, 352)
+
+[node name="Ground" type="Area2D" parent="." unique_id=1476022857]
+position = Vector2(60, -12)
+collision_layer = 2
+collision_mask = 16
+script = ExtResource("13_kvuet")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=472935953]
+position = Vector2(1071, 976)
+shape = SubResource("RectangleShape2D_d4dr6")
+
+[node name="CursorLayer" type="CanvasLayer" parent="." unique_id=709583151]
+
+[node name="Cursor" parent="CursorLayer" unique_id=1765368202 instance=ExtResource("2_yqjtg")]
+process_mode = 3
+
+[node name="Power Lights" parent="." unique_id=1414610089 instance=ExtResource("14_ir15t")]
+position = Vector2(1054, 321.00003)
+scale = Vector2(0.4704667, 0.4704667)
+
+[node name="Wheel Fronts" type="Node2D" parent="." unique_id=1558420092]
+position = Vector2(788, 267.00003)
+scale = Vector2(0.4923271, 0.4923271)
+
+[node name="Node2D" type="Node2D" parent="Wheel Fronts" unique_id=2037257686]
+position = Vector2(557.9385, 114.55764)
+
+[node name="WheelFrontLarge" type="Sprite2D" parent="Wheel Fronts/Node2D" unique_id=2002700163]
+position = Vector2(531.3873, 522.8851)
+scale = Vector2(1.1898836, 1.1898836)
+texture = ExtResource("16_ssvqc")
+
+[node name="WheelFrontLarge2" type="Sprite2D" parent="Wheel Fronts/Node2D" unique_id=666218015]
+position = Vector2(-559.96985, -118.620056)
+scale = Vector2(1.1721126, 1.1721126)
+texture = ExtResource("16_ssvqc")
+offset = Vector2(1980.0752, 76.467865)
+
+[node name="WheelFrontMed" type="Sprite2D" parent="Wheel Fronts/Node2D" unique_id=1608315637]
+position = Vector2(-557.93835, -116.588806)
+scale = Vector2(1.008959, 1.008959)
+texture = ExtResource("17_264po")
+offset = Vector2(1728.8967, 439.96704)
+
+[node name="WheelFrontMed2" type="Sprite2D" parent="Wheel Fronts/Node2D" unique_id=608924198]
+position = Vector2(418.73303, -112.654175)
+scale = Vector2(1.0234859, 1.0234859)
+texture = ExtResource("17_264po")
+
+[node name="WheelFrontMed3" type="Sprite2D" parent="Wheel Fronts/Node2D" unique_id=667315128]
+position = Vector2(-559.9696, -118.620056)
+scale = Vector2(1.0011612, 0.99745643)
+texture = ExtResource("17_264po")
+offset = Vector2(2200.2324, 747.2374)
+
+[node name="WheelFrontSmall" type="Sprite2D" parent="Wheel Fronts/Node2D" unique_id=1707425804]
+position = Vector2(-559.9697, -116.5889)
+scale = Vector2(0.83278304, 0.83278304)
+texture = ExtResource("18_1kice")
+offset = Vector2(1671.4215, 192.7395)
+
+[node name="WheelFrontSmall2" type="Sprite2D" parent="Wheel Fronts/Node2D" unique_id=1135741622]
+position = Vector2(-559.9697, -116.58905)
+scale = Vector2(0.83278304, 0.83278304)
+texture = ExtResource("18_1kice")
+offset = Vector2(1924.7252, 1022.8737)
+
+[node name="WheelFrontSmall3" type="Sprite2D" parent="Wheel Fronts/Node2D" unique_id=1897489870]
+position = Vector2(-559.9697, -118.620056)
+scale = Vector2(0.83278304, 0.83278304)
+texture = ExtResource("18_1kice")
+offset = Vector2(2077.711, -5.5005493)
+
+[connection signal="spin_washer" from="." to="Entities/Washer" method="_on_game_spin_washer"]
+[connection signal="total_power_weight_change" from="." to="Power Lights" method="_on_game_total_power_weight_change"]
+[connection signal="press" from="Entities/Washer" to="." method="_on_washer_press"]
+[connection signal="timeout" from="Timers/ScoreTimer" to="." method="_on_score_timer_timeout"]
+[connection signal="timeout" from="Timers/SeriousAppearanceTimer" to="." method="_on_serious_appearance_timer_timeout"]
+[connection signal="timeout" from="Timers/SeriousLeaveTimer" to="." method="_on_serious_leave_timer_timeout"]
+[connection signal="timeout" from="Timers/GameTimer" to="." method="_on_game_timer_timeout"]
+[connection signal="body_entered" from="Ground" to="Ground" method="_on_body_entered"]
+[connection signal="body_exited" from="Ground" to="Ground" method="_on_body_exited"]

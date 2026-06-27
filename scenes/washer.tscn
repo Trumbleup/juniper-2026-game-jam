@@ -1,17 +1,86 @@
 [gd_scene format=3 uid="uid://2biomjgu07db"]
 
+[ext_resource type="Script" uid="uid://cba02of1i1osr" path="res://scripts/washer.gd" id="1_lfd6o"]
+[ext_resource type="Texture2D" uid="uid://1dfckknkpd1r" path="res://placeholder_assets/washer/washer_outside.png" id="2_3fnrt"]
+[ext_resource type="Texture2D" uid="uid://dk5gaok0okpy8" path="res://placeholder_assets/washer/washer_drum.png" id="3_h0xcu"]
+[ext_resource type="Texture2D" uid="uid://dx0v60jyxwyfh" path="res://placeholder_assets/washer/washer_clothes.png" id="4_ebqhm"]
+[ext_resource type="Texture2D" uid="uid://cyhmcogvbk014" path="res://placeholder_assets/washer/washer_on.png" id="5_ebqhm"]
+
+[sub_resource type="Animation" id="Animation_ebqhm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WasherBody/WasherBlade:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_h0xcu"]
+resource_name = "washer_spin"
+length = 1.000008363135904
+loop_mode = 1
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WasherBody/WasherBlade:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ebqhm"]
+_data = {
+&"RESET": SubResource("Animation_ebqhm"),
+&"washer_spin": SubResource("Animation_h0xcu")
+}
+
 [node name="Washer" type="Node2D" unique_id=1307096267]
+script = ExtResource("1_lfd6o")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1993385791]
+[node name="Area2D" type="Area2D" parent="." unique_id=1078675858]
+z_index = 1
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=103759124]
-offset_right = 78.0
-offset_bottom = 90.0
-color = Color(0.47918278, 0.47918278, 0.47918278, 1)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=1418066974]
+visible = false
+position = Vector2(-108, -188)
+polygon = PackedVector2Array(218, 0, 233, 20, 246, 46, 251, 52, 252, 367, 245, 373, -26, 372, -35, 361, -37, 52, -30, 42, -1, 5)
 
-[node name="ColorRect2" type="ColorRect" parent="." unique_id=173386891]
-offset_left = 27.0
-offset_top = 31.0
-offset_right = 50.0
-offset_bottom = 57.0
-color = Color(0.07815645, 0.07815645, 0.07815645, 1)
+[node name="WasherBody" type="Sprite2D" parent="." unique_id=1976063047]
+z_index = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_3fnrt")
+
+[node name="WasherBlade" type="Sprite2D" parent="WasherBody" unique_id=646167021]
+z_index = -2
+position = Vector2(-4, 32)
+texture = ExtResource("3_h0xcu")
+offset = Vector2(4, -32)
+
+[node name="WasherClothes" type="Sprite2D" parent="WasherBody/WasherBlade" unique_id=1359934491]
+z_index = 1
+position = Vector2(-2, 2)
+texture = ExtResource("4_ebqhm")
+offset = Vector2(6, -34)
+
+[node name="WasherButton" type="Sprite2D" parent="WasherBody" unique_id=207530654]
+z_index = 1
+position = Vector2(216, -252)
+scale = Vector2(0.91304344, 0.9130435)
+texture = ExtResource("5_ebqhm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1934523955]
+libraries/ = SubResource("AnimationLibrary_ebqhm")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

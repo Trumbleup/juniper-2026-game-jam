@@ -1,0 +1,149 @@
+[gd_scene format=3 uid="uid://c12e6pb0u8rp0"]
+
+[ext_resource type="Script" uid="uid://bssoa875rf1vl" path="res://scripts/animals/frog.gd" id="1_ufl66"]
+[ext_resource type="Texture2D" uid="uid://bvbwsu060ghuf" path="res://placeholder_assets/animal_sprites/frogsheet.png" id="2_t246m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s0nli"]
+radius = 12.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8nox5"]
+radius = 31.0
+
+[sub_resource type="Animation" id="Animation_86k4g"]
+length = 0.001
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_t246m"]
+resource_name = "frog_idle"
+length = 0.08334166915044189
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_m55qb"]
+resource_name = "frog_run"
+length = 0.5
+loop_mode = 1
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.33333334, 0.41666666),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.33333334, 0.41701752),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0.0, -0.42310372, -0.21677116, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.08383621, 0.1682133, 0.25, 0.33333334, 0.41701752),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(0, -0.5), Vector2(18.5, 6), Vector2(21, 19.5), Vector2(42, 6.0000005), Vector2(24, 10.499998), Vector2(0, -0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xw5aj"]
+_data = {
+&"RESET": SubResource("Animation_86k4g"),
+&"frog_idle": SubResource("Animation_t246m"),
+&"frog_run": SubResource("Animation_m55qb")
+}
+
+[node name="Frog" type="CharacterBody2D" unique_id=572160555]
+z_index = 20
+scale = Vector2(2, 2)
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_ufl66")
+animal_type = 2
+
+[node name="GrabZone" type="Area2D" parent="." unique_id=1883675182]
+collision_layer = 16
+collision_mask = 11
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabZone" unique_id=1299213898]
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_s0nli")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1292240921]
+shape = SubResource("CircleShape2D_8nox5")
+
+[node name="RayCastLeft" type="RayCast2D" parent="." unique_id=1012461479]
+rotation = 1.5707964
+target_position = Vector2(1.5517543e-06, 35.5)
+collision_mask = 2
+
+[node name="RayCastRight" type="RayCast2D" parent="." unique_id=1207339290]
+position = Vector2(0.33333334, 1.1842447e-15)
+rotation = -1.5707964
+target_position = Vector2(-1.5590396e-06, 35.666668)
+collision_mask = 2
+
+[node name="Pivot" type="Node2D" parent="." unique_id=1712811167]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot" unique_id=37449004]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_xw5aj")
+autoplay = &"frog_run"
+
+[node name="Sprite2D" type="Sprite2D" parent="Pivot" unique_id=1731209719]
+position = Vector2(0, -0.5)
+scale = Vector2(0.368, 0.368)
+texture = ExtResource("2_t246m")
+offset = Vector2(-21.73913, -107.33695)
+hframes = 4
+region_rect = Rect2(403.13336, 170.05334, 203.1333, 125.033356)
