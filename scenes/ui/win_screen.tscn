@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bmhf5uh5x8lvd" path="res://scripts/ui/win_screen.gd" id="1_uqtu8"]
 [ext_resource type="Texture2D" uid="uid://p36mv5ltmj8e" path="res://scenes/ui/winkawaii.png" id="2_xl2x5"]
 [ext_resource type="Texture2D" uid="uid://bghgixpoqsrra" path="res://placeholder_assets/ui/retry_white.png" id="3_xl2x5"]
+[ext_resource type="Texture2D" uid="uid://c0huncb5giydx" path="res://placeholder_assets/ui/back_to_title.png" id="4_rc6je"]
 
 [node name="WinScreen" type="Control" unique_id=50801679]
 layout_mode = 3
@@ -20,19 +21,20 @@ texture = ExtResource("2_xl2x5")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=243757115]
 
 [node name="RetryButton" type="Button" parent="CanvasLayer" unique_id=1323505253]
-offset_left = 1400.0
-offset_top = 779.0
-offset_right = 1899.0
-offset_bottom = 1064.0
+offset_left = 1462.0
+offset_top = 774.0
+offset_right = 1872.0
+offset_bottom = 1059.0
 icon = ExtResource("3_xl2x5")
 flat = true
 
 [node name="MainMenuButton" type="Button" parent="CanvasLayer" unique_id=1945401731]
-offset_left = 1062.0
-offset_top = 907.0
-offset_right = 1346.0
-offset_bottom = 1041.0
-text = "Back to Title"
+offset_left = 994.0
+offset_top = 810.0
+offset_right = 1444.0
+offset_bottom = 1003.0
+icon = ExtResource("4_rc6je")
+flat = true
 
 [connection signal="pressed" from="CanvasLayer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
