@@ -64,13 +64,11 @@ func _input(event):
 			drag_offset = global_position - get_global_mouse_position()
 			cursor.updateHandSprite("animal_grabbed")
 		else:
-			print("happens")
 			game.entityHeld = false
 			dragging = false
 			animation_player.current_animation = str(animalType) + "_run"
 			cursor.updateHandSprite("hand_open")
 			if !isOnGround and !isHoveredOverWheel:
-				print("fires")
 				handleAnimalGroundSpawn()
 			
 
