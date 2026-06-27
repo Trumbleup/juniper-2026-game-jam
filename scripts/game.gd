@@ -101,16 +101,14 @@ func handleSeriousAppearance() -> void:
 		mr_serious.visible = true
 		
 func handleLose() -> void:
+	if game_time_in_seconds == 0 and score < 30:
+		get_tree().change_scene_to_file("res://scenes/ui/fail_screen.tscn")
 	if !washerActive and serious_appearance_timer.is_stopped():
-		get_tree().paused = true
-		reset_button.visible = true
-		cursor.updateHandSprite("hand_open")
+		get_tree().change_scene_to_file("res://scenes/ui/fail_screen.tscn")
 		
 func handleWin() -> void:
-	if game_time_in_seconds == 0:
-		get_tree().paused = true
-		reset_button.visible = true
-		cursor.updateHandSprite("hand_open")
+	if game_time_in_seconds == 0 and score >= 30:
+		get_tree().change_scene_to_file("res://scenes/ui/title.tscn")
 		
 		
 		

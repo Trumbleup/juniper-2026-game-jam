@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://btwvass3obgs7"]
+
+[ext_resource type="Script" uid="uid://cxom8bm3c0dr5" path="res://scripts/ui/fail_screen.gd" id="1_6cua1"]
+[ext_resource type="Texture2D" uid="uid://dwd6v2yrey78x" path="res://placeholder_assets/ui/fail_bg.png" id="1_ilrys"]
+[ext_resource type="Texture2D" uid="uid://ch88xigfl037j" path="res://placeholder_assets/ui/fail_text.png" id="2_6cua1"]
+
+[node name="FailScreen" type="Control" unique_id=892726411]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6cua1")
+
+[node name="FailBg" type="Sprite2D" parent="." unique_id=1363887596]
+position = Vector2(964, 538)
+texture = ExtResource("1_ilrys")
+
+[node name="FailText" type="Sprite2D" parent="." unique_id=314584502]
+position = Vector2(1275, 284)
+texture = ExtResource("2_6cua1")
+
+[node name="RetryButton" type="Button" parent="." unique_id=1167557228]
+layout_mode = 0
+offset_left = 1459.0
+offset_top = 817.0
+offset_right = 1755.0
+offset_bottom = 950.0
+text = "Retry"
+
+[node name="BackToMainButton" type="Button" parent="." unique_id=1198656713]
+layout_mode = 0
+offset_left = 919.0
+offset_top = 820.0
+offset_right = 1253.0
+offset_bottom = 942.0
+text = "Back to Title
+"
+
+[connection signal="pressed" from="RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="BackToMainButton" to="." method="_on_back_to_main_button_pressed"]
