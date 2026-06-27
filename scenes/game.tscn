@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://f261vebkyjeu" path="res://scenes/ui/reset_button.tscn" id="11_dinhu"]
 [ext_resource type="PackedScene" uid="uid://dme8buevb1b4x" path="res://scenes/mr__serious.tscn" id="11_kvpfn"]
 [ext_resource type="Script" uid="uid://dgiiui51y47ld" path="res://scripts/ground.gd" id="13_kvuet"]
+[ext_resource type="PackedScene" uid="uid://b4fcsx2i57y4" path="res://scenes/ui/power_lights.tscn" id="14_ir15t"]
 [ext_resource type="Texture2D" uid="uid://iwcuhre8s3yr" path="res://placeholder_assets/laundromat2.png" id="14_trtic"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8nox5"]
@@ -204,6 +205,10 @@ shape = SubResource("RectangleShape2D_d4dr6")
 
 [node name="Cursor" parent="CursorLayer" unique_id=1765368202 instance=ExtResource("2_yqjtg")]
 process_mode = 3
+
+[node name="Power Lights" parent="." unique_id=1414610089 instance=ExtResource("14_ir15t")]
+position = Vector2(1054, 321.00003)
+scale = Vector2(0.4704667, 0.4704667)
 
 [connection signal="spin_washer" from="." to="Entities/Washer" method="_on_game_spin_washer"]
 [connection signal="press" from="Entities/Washer" to="." method="_on_washer_press"]

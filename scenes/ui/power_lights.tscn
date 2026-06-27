@@ -8,7 +8,6 @@
 [node name="Power Lights" type="Node2D" unique_id=1414610089]
 
 [node name="Red Dim" type="Sprite2D" parent="." unique_id=451260483]
-position = Vector2(1290, 592)
 texture = ExtResource("1_pxj2d")
 
 [node name="6" type="Sprite2D" parent="Red Dim" unique_id=1523108595]
@@ -36,7 +35,6 @@ position = Vector2(0, 139)
 texture = ExtResource("2_w067y")
 
 [node name="Green Dim" type="Sprite2D" parent="." unique_id=572098483]
-position = Vector2(1290, 592)
 texture = ExtResource("3_7vxou")
 
 [node name="10" type="Sprite2D" parent="Green Dim" unique_id=1235713148]
