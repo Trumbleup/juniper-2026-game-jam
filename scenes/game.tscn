@@ -15,6 +15,9 @@
 [ext_resource type="Script" uid="uid://dgiiui51y47ld" path="res://scripts/ground.gd" id="13_kvuet"]
 [ext_resource type="PackedScene" uid="uid://b4fcsx2i57y4" path="res://scenes/ui/power_lights.tscn" id="14_ir15t"]
 [ext_resource type="Texture2D" uid="uid://iwcuhre8s3yr" path="res://placeholder_assets/laundromat2.png" id="14_trtic"]
+[ext_resource type="Texture2D" uid="uid://mjoyvs83pj6i" path="res://placeholder_assets/wheels/wheel_front_large.png" id="16_ssvqc"]
+[ext_resource type="Texture2D" uid="uid://cbwlusg1gv5vy" path="res://placeholder_assets/wheels/wheel_front_med.png" id="17_264po"]
+[ext_resource type="Texture2D" uid="uid://ef6j31wfrihl" path="res://placeholder_assets/wheels/wheel_front_small.png" id="18_1kice"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8nox5"]
 size = Vector2(24, 1103)
@@ -217,6 +220,59 @@ process_mode = 3
 [node name="Power Lights" parent="." unique_id=1414610089 instance=ExtResource("14_ir15t")]
 position = Vector2(1054, 321.00003)
 scale = Vector2(0.4704667, 0.4704667)
+
+[node name="Wheel Fronts" type="Node2D" parent="." unique_id=1558420092]
+position = Vector2(788, 267.00003)
+scale = Vector2(0.4923271, 0.4923271)
+
+[node name="Node2D" type="Node2D" parent="Wheel Fronts" unique_id=2037257686]
+position = Vector2(557.9385, 114.55764)
+
+[node name="WheelFrontLarge" type="Sprite2D" parent="Wheel Fronts/Node2D" unique_id=2002700163]
+position = Vector2(531.3873, 522.8851)
+scale = Vector2(1.1898836, 1.1898836)
+texture = ExtResource("16_ssvqc")
+
+[node name="WheelFrontLarge2" type="Sprite2D" parent="Wheel Fronts/Node2D" unique_id=666218015]
+position = Vector2(-559.96985, -118.620056)
+scale = Vector2(1.1721126, 1.1721126)
+texture = ExtResource("16_ssvqc")
+offset = Vector2(1980.0752, 76.467865)
+
+[node name="WheelFrontMed" type="Sprite2D" parent="Wheel Fronts/Node2D" unique_id=1608315637]
+position = Vector2(-557.93835, -116.588806)
+scale = Vector2(1.008959, 1.008959)
+texture = ExtResource("17_264po")
+offset = Vector2(1728.8967, 439.96704)
+
+[node name="WheelFrontMed2" type="Sprite2D" parent="Wheel Fronts/Node2D" unique_id=608924198]
+position = Vector2(418.73303, -112.654175)
+scale = Vector2(1.0234859, 1.0234859)
+texture = ExtResource("17_264po")
+
+[node name="WheelFrontMed3" type="Sprite2D" parent="Wheel Fronts/Node2D" unique_id=667315128]
+position = Vector2(-559.9696, -118.620056)
+scale = Vector2(1.0011612, 1.0011612)
+texture = ExtResource("17_264po")
+offset = Vector2(2200.2324, 747.2374)
+
+[node name="WheelFrontSmall" type="Sprite2D" parent="Wheel Fronts/Node2D" unique_id=1707425804]
+position = Vector2(-559.9697, -116.5889)
+scale = Vector2(0.83278304, 0.83278304)
+texture = ExtResource("18_1kice")
+offset = Vector2(1671.4215, 192.7395)
+
+[node name="WheelFrontSmall2" type="Sprite2D" parent="Wheel Fronts/Node2D" unique_id=1135741622]
+position = Vector2(-559.9697, -116.58905)
+scale = Vector2(0.83278304, 0.83278304)
+texture = ExtResource("18_1kice")
+offset = Vector2(1924.7252, 1022.8737)
+
+[node name="WheelFrontSmall3" type="Sprite2D" parent="Wheel Fronts/Node2D" unique_id=1897489870]
+position = Vector2(-559.9697, -118.620056)
+scale = Vector2(0.83278304, 0.83278304)
+texture = ExtResource("18_1kice")
+offset = Vector2(2077.711, -5.5005493)
 
 [connection signal="spin_washer" from="." to="Entities/Washer" method="_on_game_spin_washer"]
 [connection signal="press" from="Entities/Washer" to="." method="_on_washer_press"]
