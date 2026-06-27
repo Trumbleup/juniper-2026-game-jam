@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://3bnsok3vhiqc" path="res://scripts/game.gd" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://cj7icw15ggbe" path="res://scenes/cursor.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://2biomjgu07db" path="res://scenes/washer.tscn" id="3_lnu2h"]
+[ext_resource type="Texture2D" uid="uid://di604j8fh0uh4" path="res://placeholder_assets/washer/coin_slots.png" id="4_ir15t"]
 [ext_resource type="PackedScene" uid="uid://dh5oaeniqnt7w" path="res://scenes/wheels/mouse_wheel.tscn" id="5_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://cjuqpnei3umne" path="res://scenes/animals/mouse.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://5fk0851ispqx" path="res://scenes/animals/rabbit.tscn" id="6_p57ef"]
@@ -61,8 +62,15 @@ shape = SubResource("RectangleShape2D_8nox5")
 [node name="Entities" type="Node2D" parent="." unique_id=15715286]
 
 [node name="Washer" parent="Entities" unique_id=1307096267 instance=ExtResource("3_lnu2h")]
+z_index = -1
 position = Vector2(823, 687)
 scale = Vector2(0.96, 0.96)
+
+[node name="CoinSlots" type="Sprite2D" parent="Entities" unique_id=825457956]
+position = Vector2(136, 568)
+scale = Vector2(0.48007363, 0.48007363)
+texture = ExtResource("4_ir15t")
+offset = Vector2(594.643, 1.7857666)
 
 [node name="Mouse" parent="Entities" unique_id=1260241564 groups=["Animals"] instance=ExtResource("5_iywne")]
 position = Vector2(1457, 344)
