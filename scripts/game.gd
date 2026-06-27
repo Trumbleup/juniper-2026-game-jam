@@ -15,7 +15,6 @@ var animals
 @onready var serious_leave_timer = $Timers/SeriousLeaveTimer
 @onready var reset_button = $CanvasLayer/ResetButton
 @onready var cursor = $CursorLayer/Cursor
-@onready var power_lights = $"Power Lights"
 
 signal spin_washer(is_active: bool)
 signal total_power_weight_change(score: int)
@@ -30,6 +29,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	handlePowerWeight()
+	handleTotalPowerWeightChange()
 	handleSeriousAppearance()
 	handleLose()
 	handleWin()
@@ -84,6 +84,8 @@ func handleGameTime() -> void:
 	
 	$CanvasLayer/GameTimeLabel.text = time_string + ' left'
 
+func handleTotalPowerWeightChange() -> void:
+	total_power_weight_change.emit(totalPowerWeight)
 
 func handlePowerWeight() -> void:
 	var powerWeight: int = 0
