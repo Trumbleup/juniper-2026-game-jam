@@ -31,6 +31,7 @@ metadata/_edit_horizontal_guides_ = [1033.0]
 metadata/_edit_vertical_guides_ = [1257.0]
 
 [node name="BG" type="Sprite2D" parent="." unique_id=855200895]
+z_index = -7
 position = Vector2(-384, -146)
 scale = Vector2(0.95798004, 0.95798004)
 texture = ExtResource("14_trtic")
@@ -252,7 +253,7 @@ texture = ExtResource("17_264po")
 
 [node name="WheelFrontMed3" type="Sprite2D" parent="Wheel Fronts/Node2D" unique_id=667315128]
 position = Vector2(-559.9696, -118.620056)
-scale = Vector2(1.0011612, 1.0011612)
+scale = Vector2(1.0011612, 0.99745643)
 texture = ExtResource("17_264po")
 offset = Vector2(2200.2324, 747.2374)
 

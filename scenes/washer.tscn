@@ -62,12 +62,13 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_3fnrt")
 
 [node name="WasherBlade" type="Sprite2D" parent="WasherBody" unique_id=646167021]
-z_index = -1
+z_index = -2
 position = Vector2(-4, 32)
 texture = ExtResource("3_h0xcu")
 offset = Vector2(4, -32)
 
 [node name="WasherClothes" type="Sprite2D" parent="WasherBody/WasherBlade" unique_id=1359934491]
+z_index = 1
 position = Vector2(-2, 2)
 texture = ExtResource("4_ebqhm")
 offset = Vector2(6, -34)
