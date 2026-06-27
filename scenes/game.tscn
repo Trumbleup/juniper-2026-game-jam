@@ -36,6 +36,7 @@ scale = Vector2(1.2190963, 1.8286445)
 anchor_mode = 0
 
 [node name="WheelPlacement" type="Sprite2D" parent="BG" unique_id=101713238]
+visible = false
 position = Vector2(2071.0244, 614.8354)
 scale = Vector2(0.5111189, 0.5111189)
 texture = ExtResource("3_trtic")
@@ -91,33 +92,35 @@ position = Vector2(1738, 220)
 [node name="Frog2" parent="Entities" unique_id=1736212030 groups=["Animals"] instance=ExtResource("7_u5sy4")]
 position = Vector2(1739, 576)
 
-[node name="MouseWheel1" parent="Entities" unique_id=181955310 instance=ExtResource("5_0tnpc")]
-position = Vector2(1172, 295)
+[node name="Wheels" type="Node2D" parent="Entities" unique_id=1399487039]
 
-[node name="MouseWheel2" parent="Entities" unique_id=1612965596 instance=ExtResource("5_0tnpc")]
-position = Vector2(1178, 458)
+[node name="MouseWheel1" parent="Entities/Wheels" unique_id=181955310 instance=ExtResource("5_0tnpc")]
+position = Vector2(1457, 343)
 
-[node name="MouseWheel3" parent="Entities" unique_id=1119356042 instance=ExtResource("5_0tnpc")]
-position = Vector2(1177, 627)
+[node name="MouseWheel2" parent="Entities/Wheels" unique_id=1612965596 instance=ExtResource("5_0tnpc")]
+position = Vector2(1557, 674)
 
-[node name="RabbitWheel" parent="Entities" unique_id=1573098094 instance=ExtResource("8_0tnpc")]
-position = Vector2(1396, 138)
+[node name="MouseWheel3" parent="Entities/Wheels" unique_id=1119356042 instance=ExtResource("5_0tnpc")]
+position = Vector2(1619, 263)
+
+[node name="RabbitWheel" parent="Entities/Wheels" unique_id=1573098094 instance=ExtResource("8_0tnpc")]
+position = Vector2(1249, 268)
 wheel_type = 1
 
-[node name="RabbitWheel2" parent="Entities" unique_id=690929927 instance=ExtResource("8_0tnpc")]
-position = Vector2(1416, 380)
+[node name="RabbitWheel2" parent="Entities/Wheels" unique_id=690929927 instance=ExtResource("8_0tnpc")]
+position = Vector2(1624, 479)
 wheel_type = 1
 
-[node name="RabbitWheel3" parent="Entities" unique_id=23350019 instance=ExtResource("8_0tnpc")]
-position = Vector2(1427, 627)
+[node name="RabbitWheel3" parent="Entities/Wheels" unique_id=23350019 instance=ExtResource("8_0tnpc")]
+position = Vector2(1849, 626)
 wheel_type = 1
 
-[node name="FrogWheel" parent="Entities" unique_id=1899036704 instance=ExtResource("9_vtaks")]
-position = Vector2(1734.0001, 212.00002)
+[node name="FrogWheel" parent="Entities/Wheels" unique_id=1899036704 instance=ExtResource("9_vtaks")]
+position = Vector2(1304.0001, 569)
 wheel_type = 2
 
-[node name="FrogWheel2" parent="Entities" unique_id=266569211 instance=ExtResource("9_vtaks")]
-position = Vector2(1737, 568)
+[node name="FrogWheel2" parent="Entities/Wheels" unique_id=266569211 instance=ExtResource("9_vtaks")]
+position = Vector2(1899, 309)
 wheel_type = 2
 
 [node name="Timers" type="Node" parent="." unique_id=51954178]

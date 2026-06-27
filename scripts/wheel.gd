@@ -6,9 +6,9 @@ var wheelType: String
 var hoveredAnimal: CharacterBody2D = null
 var wheelOccupied: bool
 var occupiedAnimal: CharacterBody2D = null
-@onready var game = $"../../"
+@onready var game = $"../../.."
 @onready var wheelTimer = $WheelTimer
-@onready var serious_appearance_timer = $"../../Timers/SeriousAppearanceTimer"
+@onready var serious_appearance_timer = $"../../../Timers/SeriousAppearanceTimer"
 
 enum WheelType { MOUSE, RABBIT, FROG }
 @export var wheel_type: WheelType
