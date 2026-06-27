@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://cdrecixrxetmg" path="res://placeholder_assets/ui/Instruction text/3.png" id="4_05xbx"]
 [ext_resource type="Texture2D" uid="uid://bg0niysdky0nw" path="res://placeholder_assets/ui/Instruction text/4.png" id="5_1kif1"]
 [ext_resource type="Texture2D" uid="uid://n3unnd4sqgo6" path="res://placeholder_assets/ui/Instruction text/5.png" id="7_8nb8e"]
+[ext_resource type="Texture2D" uid="uid://neyl14vtpw2e" path="res://placeholder_assets/ui/Next.png" id="7_k5uvy"]
+[ext_resource type="Texture2D" uid="uid://dul210fv5iush" path="res://placeholder_assets/ui/Previous.png" id="8_61jt6"]
 [ext_resource type="Texture2D" uid="uid://c5wk032pq7gia" path="res://placeholder_assets/ui/Instruction text/6.png" id="8_k5uvy"]
 [ext_resource type="Texture2D" uid="uid://bv6hgbosvgubu" path="res://placeholder_assets/ui/Instruction text/7.png" id="9_61jt6"]
 
@@ -41,13 +43,23 @@ texture = ExtResource("4_05xbx")
 position = Vector2(1269, 650)
 texture = ExtResource("5_1kif1")
 
-[node name="Button" type="Button" parent="." unique_id=1160831637]
+[node name="NextButton" type="Button" parent="." unique_id=1160831637]
 layout_mode = 0
-offset_left = 1089.0
-offset_top = 850.0
-offset_right = 1450.0
-offset_bottom = 953.0
-text = "Next"
+offset_left = 1393.0
+offset_top = 836.0
+offset_right = 1599.0
+offset_bottom = 970.0
+icon = ExtResource("7_k5uvy")
+flat = true
+
+[node name="PreviousButton" type="Button" parent="." unique_id=1217750083]
+layout_mode = 0
+offset_left = 969.0
+offset_top = 841.0
+offset_right = 1175.0
+offset_bottom = 975.0
+icon = ExtResource("8_61jt6")
+flat = true
 
 [node name="Text2" type="Node2D" parent="." unique_id=1610831416]
 visible = false
@@ -64,4 +76,5 @@ texture = ExtResource("8_k5uvy")
 position = Vector2(1266, 607)
 texture = ExtResource("9_61jt6")
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="PreviousButton" to="." method="_on_previous_button_pressed"]
