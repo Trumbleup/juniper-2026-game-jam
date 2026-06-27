@@ -6,6 +6,7 @@ var serious_time_leave: int = 3
 var game_time_in_seconds: int = 120
 var washerActive: bool = false
 var animals
+var started: bool = false
 @export var totalPowerWeight: int = 10
 
 @export var entityHeld: bool = false
@@ -21,6 +22,10 @@ signal total_power_weight_change(score: int)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if (started):
+		get_tree().reload_current_scene()
+	else:
+		started = true
 	get_tree().paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	animals = get_tree().get_nodes_in_group("Animals")
