@@ -108,7 +108,7 @@ func handleLose() -> void:
 		
 func handleWin() -> void:
 	if game_time_in_seconds == 0 and score >= 30:
-		get_tree().change_scene_to_file("res://scenes/ui/title.tscn")
+		get_tree().change_scene_to_file("res://scenes/ui/win_screen.tscn")
 		
 		
 		
