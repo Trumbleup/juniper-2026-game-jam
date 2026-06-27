@@ -144,26 +144,26 @@ autostart = true
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -31.0
-offset_right = 31.0
-offset_bottom = 23.0
+offset_top = 8.0
+offset_right = 336.0
+offset_bottom = 127.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 87
 text = "0 points"
 
 [node name="PowerLabel" type="Label" parent="CanvasLayer" unique_id=1131941558]
-offset_left = 740.0
-offset_top = 300.0
-offset_right = 932.0
-offset_bottom = 407.0
+offset_left = 700.0
+offset_top = 377.0
+offset_right = 892.0
+offset_bottom = 484.0
 theme_override_font_sizes/font_size = 60
 text = "10/10"
 
 [node name="SeriousTimeLabel" type="Label" parent="CanvasLayer" unique_id=38844314]
-offset_left = 21.0
-offset_top = 9.0
-offset_right = 505.0
-offset_bottom = 150.0
+offset_left = 228.0
+offset_top = 17.0
+offset_right = 725.0
+offset_bottom = 158.0
 theme_override_font_sizes/font_size = 50
 text = "Mr. Serious Appears 
 in 30 Seconds"
@@ -177,15 +177,15 @@ offset_right = -874.0
 offset_bottom = -598.0
 
 [node name="GameTimeLabel" type="Label" parent="CanvasLayer" unique_id=142519251]
-offset_left = 1721.0
-offset_top = 6.0
-offset_right = 1876.0
-offset_bottom = 61.0
+offset_left = 1678.0
+offset_top = 48.0
+offset_right = 1833.0
+offset_bottom = 103.0
 theme_override_font_sizes/font_size = 40
 text = "2:00 left"
 
 [node name="Mr_ Serious" parent="." unique_id=2137749233 instance=ExtResource("11_kvpfn")]
-position = Vector2(296, 324)
+position = Vector2(427, 352)
 
 [node name="Ground" type="Area2D" parent="." unique_id=1476022857]
 position = Vector2(60, -12)
