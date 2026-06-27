@@ -4,7 +4,7 @@ var is_mouse_hovering: bool = false
 var is_mouse_pressed: bool = false
 var can_press: bool = true
 @onready var game = $"../../"
-@onready var cursor = $"../Cursor"
+@onready var cursor = $"../../CursorLayer/Cursor"
 signal press(isActive: bool)
 
 # Called when the node enters the scene tree for the first time.

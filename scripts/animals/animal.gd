@@ -19,7 +19,7 @@ var drag_offset = Vector2.ZERO
 
 @onready var game = $"../../"
 @onready var ground = $"../../Ground"
-@onready var cursor = $"../Cursor"
+@onready var cursor = $"../../CursorLayer/Cursor"
 
 # Create a dropdown list for the Inspector
 enum AnimalType { MOUSE, RABBIT, FROG }

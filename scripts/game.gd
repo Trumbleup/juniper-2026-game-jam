@@ -14,7 +14,7 @@ var animals
 @onready var serious_appearance_timer = $Timers/SeriousAppearanceTimer
 @onready var serious_leave_timer = $Timers/SeriousLeaveTimer
 @onready var reset_button = $CanvasLayer/ResetButton
-@onready var cursor = $Entities/Cursor
+@onready var cursor = $CursorLayer/Cursor
 
 signal spin_washer(is_active: bool)
 
@@ -30,6 +30,7 @@ func _process(_delta: float) -> void:
 	handlePowerWeight()
 	handleSeriousAppearance()
 	handleLose()
+	handleWin()
 	handleGameTime()
 	
 	if washerActive:
@@ -99,11 +100,13 @@ func handleLose() -> void:
 	if !washerActive and serious_appearance_timer.is_stopped():
 		get_tree().paused = true
 		reset_button.visible = true
+		cursor.updateHandSprite("hand_open")
 		
 func handleWin() -> void:
 	if game_time_in_seconds == 0:
 		get_tree().paused = true
 		reset_button.visible = true
+		cursor.updateHandSprite("hand_open")
 		
 		
 		
